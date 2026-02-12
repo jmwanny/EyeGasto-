@@ -19,9 +19,9 @@
 
 <body class="bg-[#1D3557] flex flex-col items-center justify-center ">
 
-  <div class="add-withdraw-option-container w-full fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-
-    <div class="outer-card">
+  <div class="add-withdraw-option-container w-full fixed inset-0 bg-black/50 z-50 flex hidden items-center justify-center">
+   
+    <div class="outer-card max-w-[500px]">
       <div class="inner-card rounded-lg p-6 flex flex-row items-center gap-4 w-full">
 
         <div class="flex flex-col justify-between gap-4">
@@ -39,14 +39,36 @@
         </div>
         </div>
 
-        <div class="flex flex-col justify-between gap-8">
-          <button class="bg-green-500 text-white p-2 text-sm rounded hover:bg-green-600 cursor-pointer js-add-button">Add
+        <div class="flex flex-col justify-between gap-4">
+          <button class="bg-[#07D5C4] text-white flex justify-center p-2 gap-1 text-xs rounded-2xl w-full text-outline-black-38 drop-shadow-[0_2px_2px_rgba(0,0,0,0.56)] cursor-pointer js-add-button sm:text-base">Add
             Money</button>
-          <button class="js-withdraw-button bg-red-500 text-sm text-white p-2 rounded hover:bg-red-600 cursor-pointer">Withdraw Money</button>
+          <button class="js-withdraw-button bg-[#07D5C4] text-white flex items-center p-2 gap-1 text-xs rounded-2xl w-full text-outline-black-38 drop-shadow-[0_2px_2px_rgba(0,0,0,0.56)] cursor-pointer sm:text-base">Withdraw Money</button>
         </div>
 
       </div>
 
+    </div>
+  </div>
+
+  <div class = "transactions-container w-full fixed inset-0 bg-black/50 z-50 flex flex-col items-center hidden justify-center">
+    
+     <div class="outer-card">
+      <div class = "bg-white w-full flex flex-col max-h-[50vh] rounded-2xl p-3 ">
+      <div>
+        <h1 class="text-center font-bold pb-3 sm:text-base ">Transactions</h1>
+      </div>
+      <div class="w-full grid grid-cols-4 text-sm sm:text-base">
+        <h1 class="text-center font-bold">Amount</h1>
+        <h1 class="text-center font-bold">Description</h1>
+        <h1 class="text-center font-bold">Type</h1>
+        <h1 class="text-center font-bold">Date</h1>
+      </div>
+      
+      <div class = "receipts-container w-full grid grid-rows-auto gap-1 text-sm overflow-y-auto sm:text-base">
+
+      </div>
+      
+        </div>
     </div>
   </div>
 
@@ -60,8 +82,8 @@
     </div>
   </div>
 
-  <div class="outer-card">
-    <div class="inner-card js-savings-container">
+  <div class="outer-card max-w-[550px]">
+    <div class="inner-card js-savings-container relative">
 
     </div>
   </div>

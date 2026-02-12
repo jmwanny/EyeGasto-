@@ -24,7 +24,7 @@ export let savingsMoney = {
         amount: input,
         description: description,
         type: "deposit",
-        date: new Date()
+        date: new Date().toLocaleDateString()
       });
       
       saveToLocalStorage({
@@ -35,9 +35,13 @@ export let savingsMoney = {
     }},
 
   withdrawMoney(input, description) {
-     if(typeof input !== "number" || isNaN(input) || input<=0) {
+     if(typeof input !== "number" || isNaN(input) || input<=0 ) {
        alert('Please enter a valid number!');
          return; 
+     }
+
+    if(input>savingsMoney.money) {
+      alert('Insufficient funds!');
      } else {
       this.money -= input;
       
@@ -45,7 +49,7 @@ export let savingsMoney = {
         amount: input,
         description: description,
         type: "withdraw",
-        date: new Date()
+        date: new Date().toLocaleDateString()
       })
 
       saveToLocalStorage({
@@ -61,7 +65,7 @@ export let savingsMoney = {
 }
 
 
-export function addMoneyInSavingsHTML() {
+export function addMoneyInSavings() {
     const addButton = document.querySelector('.js-add-button');
     let savingsBalanceHTML = document.querySelector('.savings-balance');
 
@@ -71,14 +75,14 @@ export function addMoneyInSavingsHTML() {
 
       savingsMoney.addMoney(addedAmount, newDescription);
       savingsBalanceHTML.textContent = savingsMoney.getCurrentMoney();
-      hideAddWithdrawOption();
+      hideAddWithdrawOption(addButton);
 
     });
 
   }
 
   
-export function withdrawMoneyInSavingsHTML() {
+export function withdrawMoneyInSavings() {
     const withdrawButton = document.querySelector('.js-withdraw-button');
     let savingsBalanceHTML = document.querySelector('.savings-balance');
 
@@ -88,9 +92,10 @@ export function withdrawMoneyInSavingsHTML() {
 
       savingsMoney.withdrawMoney(withdrawnAmount, newDescription);
       savingsBalanceHTML.textContent = savingsMoney.getCurrentMoney();
-      hideAddWithdrawOption();
+      hideAddWithdrawOption(withdrawButton);
 
     });
 
   }
+
 
