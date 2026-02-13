@@ -1,10 +1,10 @@
-import { hideAddWithdrawOption } from "./main.js";
+import { hideAddWithdrawOption } from "../scripts/modals/addWithdraw.js";
 import { formatToPeso } from "./utils.js";
 import "./storage.js";
 import { loadSavingsFromStorage, saveToLocalStorage } from "./storage.js";
 
 
-const savedData = loadSavingsFromStorage();
+const savedData = loadSavingsFromStorage("savings");
 
 export let savingsMoney = {
   money: savedData.money,
@@ -27,7 +27,7 @@ export let savingsMoney = {
         date: new Date().toLocaleDateString()
       });
       
-      saveToLocalStorage({
+      saveToLocalStorage("savings", {
         money: savingsMoney.money,
         transactions: savingsMoney.transactions
       });
@@ -52,7 +52,7 @@ export let savingsMoney = {
         date: new Date().toLocaleDateString()
       })
 
-      saveToLocalStorage({
+      saveToLocalStorage("savings", {
         money: savingsMoney.money,
         transactions: savingsMoney.transactions
       });

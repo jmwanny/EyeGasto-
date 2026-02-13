@@ -36,11 +36,12 @@ function updateReceiptHTML() {
   <div class = "text-center">${tx.type}</div>
   <div class = "text-center">${tx.date}</div>
   </div >
+  
   `
 
   });
 
-  receiptContainer.innerHTML = html
+  receiptContainer.innerHTML = html;
 }
 
 

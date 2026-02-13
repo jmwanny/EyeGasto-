@@ -58,7 +58,6 @@
               class="js-withdraw-button bg-[#07D5C4] text-white flex items-center p-2 gap-1 text-xs rounded-2xl w-full text-outline-black-38 drop-shadow-[0_2px_2px_rgba(0,0,0,0.56)] cursor-pointer sm:text-base">Withdraw
               Money</button>
           </div>
-
         </div>
 
       </div>
@@ -84,6 +83,7 @@
           </div>
 
         </div>
+
       </div>
     </div>
 
@@ -131,34 +131,50 @@
               class="w-full p-2 text-sm border-2 rounded-xl bg-white text-black sm:text-base ">
               <option value="" selected disabled hidden>Category</option>
 
-              <option value="foods-drinks">Foods & Drinks</option>
-              <option value="transport">Transport</option>
-              <option value="shopping">Shopping</option>
-              <option value="bills-utilities">Bills & Utilities</option>
-              <option value="health-fitness">Health & Fitness</option>
-              <option value="entertainment">Entertainment</option>
-              <option value="education">Education</option>
-              <option value="savings">Savings</option>
-              <option value="others">Others</option>
+              <option value="Foods & Drinks">Foods & Drinks</option>
+              <option value="Transport">Transport</option>
+              <option value="Shoppings">Shopping</option>
+              <option value="Bills & Utilities">Bills & Utilities</option>
+              <option value="Health & Fitness">Health & Fitness</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Education">Education</option>
+              <option value="Savings">Savings</option>
+              <option value="Debt">Debt</option>
+              <option value="Others">Others</option>
             </select>
           </div>
 
           <div class="flex items-center justify-center w-full">
-            <button
+            <button id="js-add-expense"
               class="bg-[#07D5C4] text-white flex justify-center items-center px-7 py-3 gap-1
         text-xs rounded-2xl text-outline-black-38 drop-shadow-[0_2px_2px_rgba(0,0,0,0.56)] cursor-pointer sm:text-base">
               Add Expense
             </button>
           </div>
-
-
         </div>
       </div>
-
     </div>
+
+    <div class="bg-[#4FECF3] rounded-2xl 
+    w-[90%] pt-4 max-w-[550px] ">
+        <h1 class="font-['Lilita_One'] text-white text-2xl text-outline-black pl-3">Your Expenses</h1>
+
+        <div class = "inner-card rounded-r-none rounded-l-none flex flex-col">
+          
+          <div class = "date-container">
+            
+          </div>
+
+          <div class = "expenses-container flex flex-col gap-3 overflow-y-scroll w-full">
+        
+          </div>
+        </div>
+
+      </div>
 
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
   <script src="../scripts/main.js" type="module"></script>
 </body>
 

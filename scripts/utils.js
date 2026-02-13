@@ -1,3 +1,4 @@
+
 export function formatToPeso(amount) {
  
   return amount.toLocaleString("en-PH", {
@@ -9,3 +10,9 @@ export function formatToPeso(amount) {
 }
 
 
+export function formatDate(date) {
+   
+  const today = dayjs(date).format('MMMM D, YYYY');
+  return today;
+ 
+}
