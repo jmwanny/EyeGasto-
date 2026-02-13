@@ -4,12 +4,12 @@
 
   .outer-card{
     @apply 
-      w-[90%] max-w-[556px] h-auto bg-[#A8DADC] px-[15px] pb-[15px] pt-[30px] rounded-[20px];
+      w-[90%] h-auto bg-[#A8DADC] px-[18px] pb-[15px] pt-[16px] rounded-[20px];
   
   }
 
   .inner-card {
-    @apply bg-[linear-gradient(0deg,#45E7EE_0%,#FFFFFF_50%)] flex justify-evenly rounded-[20px] p-2;
+    @apply bg-[linear-gradient(0deg,#45E7EE_0%,#FFFFFF_50%)] flex justify-evenly rounded-[20px] p-3;
   }
 
 

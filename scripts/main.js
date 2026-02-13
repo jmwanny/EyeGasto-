@@ -5,34 +5,62 @@ import { showReceipts } from './renderReceipts.js';
 
 
 
-function showAddWithdrawOption () {
-  const addWithdrawBtn = document.querySelector('.add-withdraw-money');
-  const addWithdrawContainer = document.querySelector('.add-withdraw-option-container');
+function initAddWithdrawOption () {
+  const button = document.querySelector('.add-withdraw-money');
+  const closeButton = document.querySelector('.js-close-add-withdraw');
+  const container = document.querySelector('.add-withdraw-option-container');
 
-  addWithdrawBtn.addEventListener('click', () => {
-   addWithdrawContainer.classList.remove("hidden");
+  button.addEventListener('click', () => {
+   container.classList.remove("hidden");
   })
   
+   closeButton.addEventListener('click', () => {
+    container.classList.add("hidden");
+  });
+
 }
 
 export function hideAddWithdrawOption (button) {
-  const addWithdrawContainer = document.querySelector('.add-withdraw-option-container');
+  const container = document.querySelector('.add-withdraw-option-container');
 
    button.addEventListener('click', () => {
-   addWithdrawContainer.classList.add("hidden");
+   container.classList.add("hidden");
   });
 
- 
- addWithdrawContainer.addEventListener('click', (e) => {
-  if(e.target === addWithdrawContainer) {
-    addWithdrawContainer.classList.add("hidden");
-  }
- })
 }
+
+function initAddExpenseOption() {
+  const button = document.querySelector('.js-show-add-expense');
+  const container = document.querySelector('.add-expense-option-container');
+
+  button.addEventListener('click', () => {
+
+    container.classList.remove("hidden");
+  })
+
+  const closeButton = document.querySelector('.js-close-add-expense');
+
+   closeButton.addEventListener('click', () => {
+    container.classList.add("hidden");
+
+  });
+   
+}
+
+function hideAddExpense() {
+  const container = document.querySelector('.add-expense-option-container');
+
+
+}
+
+
+
+
 
 renderSavingsHTML();
 addMoneyInSavings();
 withdrawMoneyInSavings();
-showAddWithdrawOption();
+initAddWithdrawOption();
+initAddExpenseOption();
 showReceipts();
 
