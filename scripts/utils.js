@@ -20,3 +20,7 @@ export function formatDate(date) {
 export function removeJustifyCenter (container) {
    container.classList.remove("justify-center");
 }
+
+export function addJustifyCenter (container) {
+   container.classList.add("justify-center");
+}

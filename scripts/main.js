@@ -6,7 +6,7 @@ import {initAddExpenseOption, hideAddExpense} from './modals/addExpense.js';
 import {initAddWithdrawOption, hideAddWithdrawOption} from './modals/addWithdraw.js';
 import { initAddExpense } from './modals/addExpense.js';
 import { renderDateTodayHTML } from './renderdateToday.js';
-import { renderExpensesHTML } from './renderExpenses.js';
+import { initDeleteExpense, renderExpensesHTML } from './renderExpenses.js';
 import { renderDefaultExpensesHTML } from './renderDefault.js';
 
 
@@ -19,4 +19,5 @@ initAddWithdrawOption();
 initAddExpenseOption();
 showReceipts();
 initAddExpense();
+initDeleteExpense();
 renderDateTodayHTML();

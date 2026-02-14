@@ -14,20 +14,19 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lacquer&family=Lilita+One&display=swap"
     rel="stylesheet">
-
 </head>
 
 <body class="bg-[#1D3557] overflow-x-hidden">
 
-  <div class="grid grid-cols-1 gap-5 border-black place-items-center pb-20">
+  <div class="grid grid-cols-1 gap-2 border-black place-items-center pb-20">
 
+    <!-- Floating Add Expense Button -->
     <div class="fixed bottom-5 right-5 z-11 rounded-[100%] bg-[#14D7C6] js-show-add-expense p-4">
       <img src="../images/coin-button.png" alt="Coin button logo " class="w-[35px] h-[30px]">
     </div>
 
-    <div
-      class="add-withdraw-option-container w-full fixed inset-0 bg-black/50 z-50 flex hidden items-center justify-center">
-
+    <!-- Add/Withdraw Modal -->
+    <div class="add-withdraw-option-container w-full fixed inset-0 bg-black/50 z-50 flex hidden items-center justify-center">
       <div class="js-close-add-withdraw absolute top-5 right-5 text-white text-xl">
         <i class="fa-solid fa-x"></i>
       </div>
@@ -36,40 +35,37 @@
         <div class="inner-card rounded-xl p-6 flex flex-row items-center gap-4 w-full">
 
           <div class="flex flex-col justify-between gap-4">
-
             <div class="relative">
               <input type="text" id="description" class="js-description peer input-cozy" placeholder="Description">
-
               <label for="description" class="label-cozy">Description</label>
             </div>
-
             <div class="relative">
               <input type="text" id="amount" class="js-amountInput peer input-cozy" placeholder="Amount">
-
               <label for="amount" class="label-cozy">Amount</label>
             </div>
           </div>
 
           <div class="flex flex-col justify-between gap-4">
             <button
-              class="bg-[#07D5C4] text-white flex justify-center p-2 gap-1 text-xs rounded-2xl w-full text-outline-black-38 drop-shadow-[0_2px_2px_rgba(0,0,0,0.56)] cursor-pointer js-add-button sm:text-base">Add
-              Money</button>
+              class="bg-[#07D5C4] text-white flex justify-center p-2 gap-1 text-xs rounded-2xl w-full text-outline-black-38 drop-shadow-[0_2px_2px_rgba(0,0,0,0.56)] cursor-pointer js-add-button sm:text-base">
+              Add Money
+            </button>
             <button
-              class="js-withdraw-button bg-[#07D5C4] text-white flex items-center p-2 gap-1 text-xs rounded-2xl w-full text-outline-black-38 drop-shadow-[0_2px_2px_rgba(0,0,0,0.56)] cursor-pointer sm:text-base">Withdraw
-              Money</button>
+              class="js-withdraw-button bg-[#07D5C4] text-white flex items-center p-2 gap-1 text-xs rounded-2xl w-full text-outline-black-38 drop-shadow-[0_2px_2px_rgba(0,0,0,0.56)] cursor-pointer sm:text-base">
+              Withdraw Money
+            </button>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
 
-    <div
-      class="transactions-container w-full fixed inset-0 bg-black/50 z-50 flex flex-col items-center hidden justify-center">
-
+    <!-- Transactions Modal -->
+    <div class="transactions-container w-full fixed inset-0 bg-black/50 z-50 flex flex-col items-center hidden justify-center">
       <div class="outer-card">
-        <div class="bg-white w-full flex flex-col max-h-[50vh] rounded-2xl p-3 ">
+        <div class="bg-white w-full flex flex-col max-h-[50vh] rounded-2xl p-3">
           <div>
-            <h1 class="text-center font-bold pb-3 sm:text-base ">Transactions</h1>
+            <h1 class="text-center font-bold pb-3 sm:text-base">Transactions</h1>
           </div>
           <div class="w-full grid grid-cols-4 text-sm sm:text-base">
             <h1 class="text-center font-bold">Amount</h1>
@@ -77,37 +73,32 @@
             <h1 class="text-center font-bold">Type</h1>
             <h1 class="text-center font-bold">Date</h1>
           </div>
-
           <div class="receipts-container w-full grid grid-rows-auto gap-1 text-sm overflow-y-auto sm:text-base">
-
           </div>
-
         </div>
-
       </div>
     </div>
 
-
-    <div class="w-[380px] flex flex-row  px-3 pt-10 pb-3 items-center justify-center">
+    <!-- Header Section -->
+    <div class="w-[380px] flex flex-row px-3 pt-10 pb-3 items-center justify-center">
       <img class="w-[114px] h-[72px] translate-x-3" src="../images/eye-gasto-logo.png" alt="Eye Gasto logo">
-
       <div class="flex flex-col w-full items-center justify-center">
         <h1 class="font-['Lilita_One'] text-white text-5xl text-outline-black">EyeGasto!</h1>
-        <p class="text-white font-['Lacquer'] text-center text-sm text-outline-black">Track your expenses and savings.
+        <p class="text-white font-['Lacquer'] text-center text-sm text-outline-black">
+          Track your expenses and savings.
         </p>
       </div>
     </div>
 
+    <!-- Manage Savings Card -->
     <div class="outer-card max-w-[550px]">
       <h1 class="font-['Lilita_One'] text-white text-xl text-outline-black">Manage Savings</h1>
       <div class="inner-card js-savings-container relative">
-
       </div>
     </div>
 
-    <div
-      class="add-expense-option-container w-full fixed inset-0 bg-black/50 z-50 flex hidden items-center justify-center">
-
+    <!-- Add Expense Modal -->
+    <div class="add-expense-option-container w-full fixed inset-0 bg-black/50 z-50 flex hidden items-center justify-center">
       <div class="js-close-add-expense absolute top-5 right-5 text-white text-xl">
         <i class="fa-solid fa-x"></i>
       </div>
@@ -116,21 +107,17 @@
         <div class="inner-card flex flex-col gap-3 w-full items-center sm:flex-row">
 
           <div class="w-full flex flex-row gap-2 flex-wrap max-w-[350px] sm:w-[800px]">
-
             <div class="relative w-[50%]">
               <input type="text" id="expense-description" placeholder="Description" class="peer input-cozy">
               <label for="expense-description" class="label-cozy">Description</label>
             </div>
-
             <div class="relative w-[45%]">
               <input type="number" id="expense-amount" placeholder="Amount" class="peer input-cozy" min="0">
               <label for="expense-amount" class="label-cozy">Amount</label>
             </div>
-
             <select name="category" id="category" aria-placeholder="Category"
-              class="w-full p-2 text-sm border-2 rounded-xl bg-white text-black sm:text-base ">
+              class="w-full p-2 text-sm border-2 rounded-xl bg-white text-black sm:text-base">
               <option value="" selected disabled hidden>Category</option>
-
               <option value="Foods">Foods</option>
               <option value="Transport">Transport</option>
               <option value="Shoppings">Shopping</option>
@@ -146,32 +133,49 @@
 
           <div class="flex items-center justify-center w-full">
             <button id="js-add-expense"
-              class="bg-[#07D5C4] text-white flex justify-center items-center px-7 py-3 gap-1
-        text-xs rounded-2xl text-outline-black-38 drop-shadow-[0_2px_2px_rgba(0,0,0,0.56)] cursor-pointer sm:text-base">
+              class="bg-[#07D5C4] text-white flex justify-center items-center px-7 py-3 gap-1 text-xs rounded-2xl text-outline-black-38 drop-shadow-[0_2px_2px_rgba(0,0,0,0.56)] cursor-pointer sm:text-base">
               Add Expense
             </button>
           </div>
+
         </div>
       </div>
     </div>
 
-    <div class="bg-[#4FECF3] rounded-2xl 
-    w-[90%] pt-4 max-w-[550px] h-[300px] ">
-        <h1 class="font-['Lilita_One'] text-white text-2xl text-outline-black pl-3">Your Expenses</h1>
+    <!-- Your Expenses Card -->
+    <div class="bg-[#4FECF3] rounded-2xl w-[90%] pt-4 max-w-[550px] h-[300px]">
+      <h1 class="font-['Lilita_One'] text-white text-2xl text-outline-black pl-3">Your Expenses</h1>
+      <div class="inner-card rounded-r-none rounded-l-none flex flex-col h-full p-0 rounded-b-xl">
+        <div class="date-container h-[30px] font-['DM_Sans'] pb-3 px-3 pt-1">
+        </div>
+        <div class="expenses-container flex flex-col gap-3 overflow-x-auto w-full h-full items-center justify-center p-0 pt-2 px-3">
+          <h1 class="font-['DM_Sans'] text-center">
+            No expenses today yet. Start tracking now 💸.
+          </h1>
+        </div>
+      </div>
+    </div>
 
-        <div class = "inner-card rounded-r-none rounded-l-none flex flex-col h-full rounded-b-xl">
-          
-          <div class = "date-container h-[30px] font-['DM_Sans'] pb-3">
-            
-          </div>
+    <!-- Empty Card (Optional) -->
+    <div class="outer-card m-w[550px]">
+      <div class="inner-card flex flex-col">
+        <h1 class = "font-semibold font-[DM_Sans] w-full text-center">Total Expenses</h1>
 
-          <div class = "expenses-container flex flex-col gap-3 overflow-y-scroll w-full h-full items-center justify-center p-3">
-    
-            <h1 class = "font-['DM_Sans'] text-center">No expenses today yet. Start tracking now 💸.</h1>
-          </div>
+        <div class = "total-expenses-container">
+          <h1 class = "total-expenses w-full text-center text-[#079F9F] font-['DM_Sans'] font-bold text-3xl">P0.00</h1>
         </div>
 
+          <div class="font-semibold font-[DM_Sans] w-full">Recent Expenses:</div>
+          <div class="recent-expenses-container">
+          <h1>No expenses today.</h1>
+        </div>
+
+        <div class = "biggest-expense-container">
+          <h1 class = "font-semibold font-[DM_Sans] w-full">Biggest Expense Today:</h1>
+          <p>No expense.</p>
+        </div>
       </div>
+    </div>
 
   </div>
 
