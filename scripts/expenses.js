@@ -3,10 +3,12 @@ import { updateRecentExpenses } from "./recentExpenses.js";
 import { renderExpensesHTML } from "./renderExpenses.js";
 import { loadSavingsFromStorage, saveToLocalStorage } from "./storage.js";
 import {updateTotalExpenses} from "./totalExpenses.js";
+import { updateExpensesChart } from "./charts/expensesChart.js";
 
 const savedData = loadSavingsFromStorage("expenses");
 
 export let expenses = savedData || []; 
+
 
 export function addExpense(description, amount, category) {
   const expense = {
@@ -23,6 +25,7 @@ export function addExpense(description, amount, category) {
   updateTotalExpenses();
   setTimeout(updateRecentExpenses, 3000);
   setTimeout(updateBiggestExpense,5000);
+  updateExpensesChart(expenses);
 }
 
 export function deleteExpense(id) {
@@ -33,6 +36,7 @@ export function deleteExpense(id) {
  updateTotalExpenses();
  updateRecentExpenses();
  updateBiggestExpense();
+ updateExpensesChart(expenses);
  }
 
 
