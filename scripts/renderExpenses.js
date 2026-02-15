@@ -26,7 +26,7 @@ export function renderExpensesHTML() {
    removeJustifyCenter(container);
 
   container.innerHTML = expenses.map(expense => `
-    <div class="flex w-full justify-evenly items-center rounded-xl bg-white px-1 gap-2.5">
+    <div class="flex w-full justify-evenly items-center rounded-2xl bg-white px-1 py-2 gap-2.5">
       <h1 class="font-bold text-ellipsis overflow-hidden whitespace-nowrap max-w-[40%] ">${expense.description}</h1>
       <div class="rounded-full flex py-1 px-4 gap-2 items-center flex-shrink-0" style="background-color: ${expense.color}">
         <img class="w-5" src="${expense.logo}">

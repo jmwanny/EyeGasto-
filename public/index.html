@@ -18,7 +18,7 @@
 
 <body class="bg-[#1D3557] overflow-x-hidden">
 
-  <div class="grid grid-cols-1 gap-2 border-black place-items-center pb-20">
+  <div class="grid grid-cols-1 gap-8 border-black place-items-center pb-20">
 
     <!-- Floating Add Expense Button -->
     <div class="fixed bottom-5 right-5 z-11 rounded-[100%] bg-[#14D7C6] js-show-add-expense p-4">
@@ -143,12 +143,12 @@
     </div>
 
     <!-- Your Expenses Card -->
-    <div class="bg-[#4FECF3] rounded-2xl w-[90%] pt-4 max-w-[550px] h-[300px]">
+    <div class="outer-card bg-[#4FECF3] rounded-2xl w-[90%] pt-4 px-0 max-w-[550px] h-[300px]">
       <h1 class="font-['Lilita_One'] text-white text-2xl text-outline-black pl-3">Your Expenses</h1>
-      <div class="inner-card rounded-r-none rounded-l-none flex flex-col h-full p-0 rounded-b-xl">
+      <div class="inner-card rounded-r-none rounded-l-none flex flex-1 flex-col h-full p-0 rounded-b-xl">
         <div class="date-container h-[30px] font-['DM_Sans'] pb-3 px-3 pt-1">
         </div>
-        <div class="expenses-container flex flex-col gap-3 overflow-x-auto w-full h-full items-center justify-center p-0 pt-2 px-3">
+        <div class="expenses-container flex flex-col gap-3 overflow-y-auto w-full h-full items-center justify-center  py-4 px-2">
           <h1 class="font-['DM_Sans'] text-center">
             No expenses today yet. Start tracking now 💸.
           </h1>
@@ -157,9 +157,9 @@
     </div>
 
     <!-- Empty Card (Optional) -->
-    <div class="outer-card m-w[550px]">
+    <div class="outer-card max-w[550px]">
       <div class="inner-card flex flex-col">
-        <h1 class = "font-semibold font-[DM_Sans] w-full text-center">Total Expenses</h1>
+        <h1 class = "font-bold font-[DM_Sans] w-full text-center">Total Expenses</h1>
 
         <div class = "total-expenses-container">
           <h1 class = "total-expenses w-full text-center text-[#079F9F] font-['DM_Sans'] font-bold text-3xl">P0.00</h1>
@@ -171,8 +171,8 @@
         </div>
 
         <div class = "biggest-expense-container">
-          <h1 class = "font-semibold font-[DM_Sans] w-full">Biggest Expense Today:</h1>
-          <p>No expense.</p>
+          <h1 class = "font-semibold font-[DM_Sans] w-full">Biggest Expense Today:<span class ="biggestExpenseName"></span></h1>
+          <p class = "text-center">No expense.</p>
         </div>
       </div>
     </div>

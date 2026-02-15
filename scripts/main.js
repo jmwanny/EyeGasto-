@@ -8,7 +8,9 @@ import { initAddExpense } from './modals/addExpense.js';
 import { renderDateTodayHTML } from './renderdateToday.js';
 import { initDeleteExpense, renderExpensesHTML } from './renderExpenses.js';
 import { renderDefaultExpensesHTML } from './renderDefault.js';
-
+import { updateTotalExpenses } from './totalExpenses.js';
+import { updateRecentExpenses } from './recentExpenses.js';
+import { updateBiggestExpense } from './biggestExpense.js';
 
 
 renderSavingsHTML();
@@ -21,3 +23,6 @@ showReceipts();
 initAddExpense();
 initDeleteExpense();
 renderDateTodayHTML();
+updateTotalExpenses();
+updateRecentExpenses();
+updateBiggestExpense();

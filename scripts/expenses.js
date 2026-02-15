@@ -1,11 +1,12 @@
-import { renderRecentExpenses } from "./recentExpenses.js";
+import { updateBiggestExpense } from "./biggestExpense.js";
+import { updateRecentExpenses } from "./recentExpenses.js";
 import { renderExpensesHTML } from "./renderExpenses.js";
 import { loadSavingsFromStorage, saveToLocalStorage } from "./storage.js";
-import { updateTotalExpenses } from "./totalExpenses.js";
+import {updateTotalExpenses} from "./totalExpenses.js";
 
 const savedData = loadSavingsFromStorage("expenses");
 
-export let expenses = savedData || [];
+export let expenses = savedData || []; 
 
 export function addExpense(description, amount, category) {
   const expense = {
@@ -20,7 +21,8 @@ export function addExpense(description, amount, category) {
   expenses.push(expense);
   saveToLocalStorage("expenses", expenses);
   updateTotalExpenses();
-  renderRecentExpenses();
+  updateRecentExpenses();
+  updateBiggestExpense();
 }
 
 export function deleteExpense(id) {
@@ -29,7 +31,8 @@ export function deleteExpense(id) {
  saveToLocalStorage("expenses", expenses);
  renderExpensesHTML();
  updateTotalExpenses();
- renderRecentExpenses();
+ updateRecentExpenses();
+ updateBiggestExpense();
  }
 
 

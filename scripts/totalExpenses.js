@@ -1,15 +1,24 @@
 import { expenses } from "./expenses.js";
+import { loadSavingsFromStorage } from "./storage.js";
 import { formatToPeso } from "./utils.js";
 
-export function updateTotalExpenses() {
-  const total = expenses.reduce((sum,exp) => sum + exp.amount, 0);
-  localStorage.setItem("totalExpenses", total);
-  console.log(total);
 
-  updateTotalExpensesUI(total);
+const savedData = loadSavingsFromStorage("totalExpenses");
+
+let totalExpenses = savedData || 0;
+
+export function updateTotalExpenses() {
+  
+  totalExpenses = expenses.reduce((sum,exp) => sum + exp.amount, 0);
+
+  loadSavingsFromStorage("totalExpenses", totalExpenses);
+
+  console.log(totalExpenses);
+
+  renderTotalExpensesHTML(totalExpenses);
 }
 
-export function updateTotalExpensesUI(total) {
+export function renderTotalExpensesHTML(total) {
 
   const totalExpense = document.querySelector('.total-expenses');
   

@@ -1,15 +1,27 @@
 import { expenses } from "./expenses.js";
+import { loadSavingsFromStorage, saveToLocalStorage } from "./storage.js";
 import { formatToPeso } from "./utils.js";
 
 
-export function renderRecentExpenses () {
+const savedData = loadSavingsFromStorage("recentExpenses");
 
+let recentExpenses = savedData || [];
+
+export function updateRecentExpenses () {
+    
+    recentExpenses = expenses.slice(-2);
+
+    saveToLocalStorage("recentExpenses", recentExpenses);
+
+    renderRecentExpensesHTML(recentExpenses)
+}
+
+
+function renderRecentExpensesHTML(recentExpenses) {
     const container = document.querySelector('.recent-expenses-container');
 
-  if(!container)
-   creturn;
-
-   const recentExpenses = expenses.slice(-2);
+     if(!container)
+       return;
 
    container.innerHTML = recentExpenses.map(expense =>
     `
