@@ -157,8 +157,8 @@
     </div>
 
     <!-- Empty Card (Optional) -->
-    <div class="outer-card max-w[550px]">
-      <div class="inner-card flex flex-col">
+    <div class="outer-card max-w[550px] h-[350px]">
+      <div class="inner-card flex flex-col h-full">
         <h1 class = "font-bold font-[DM_Sans] w-full text-center">Total Expenses</h1>
 
         <div class = "total-expenses-container">
@@ -166,13 +166,12 @@
         </div>
 
           <div class="font-semibold font-[DM_Sans] w-full">Recent Expenses:</div>
-          <div class="recent-expenses-container">
-          <h1>No expenses today.</h1>
+          <div class="recent-expenses-container flex flex-col items-center">
+  
         </div>
 
-        <div class = "biggest-expense-container">
-          <h1 class = "font-semibold font-[DM_Sans] w-full">Biggest Expense Today:<span class ="biggestExpenseName"></span></h1>
-          <p class = "text-center">No expense.</p>
+        <div class = "biggest-expense-container flex gap-3 flex-col items-center">
+       
         </div>
       </div>
     </div>
@@ -180,6 +179,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="../scripts/main.js" type="module"></script>
 </body>
 

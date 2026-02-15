@@ -14,6 +14,8 @@ export function updateRecentExpenses () {
     saveToLocalStorage("recentExpenses", recentExpenses);
 
     renderRecentExpensesHTML(recentExpenses)
+
+    console.log(recentExpenses)
 }
 
 
@@ -23,20 +25,35 @@ function renderRecentExpensesHTML(recentExpenses) {
      if(!container)
        return;
 
+if(recentExpenses.length === 0) {
+   container.innerHTML =
+   `
+    <h1 class = "text-center">No expenses today.</h1>
+   `
+   return;
+  }
+
    container.innerHTML = recentExpenses.map(expense =>
-    `
-    <div class = "bg-white w-full rounded-xl flex flex-row mb-2">
-    <div style = "background-color:${expense.color}" class = "rounded-xl rounded-r-none w-full flex p-2 items-center justify-start gap-3">
-    <img src = "${expense.logo}" alt = "${expense.category}" class="w-5 flex-shrink-0"/>
-    <h1 class = "text-white text-sm font-bold">
-     ${expense.description}
+    `<div class="flex bg-white w-[80%] rounded-xl mb-2 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+
+  <!-- LEFT: colored, shrinkable -->
+  <div class="flex items-center gap-3 p-3 rounded-l-xl min-w-0 flex-1 flex-shrink" 
+       style="background-color:${expense.color}">
+    <img src="${expense.logo}" class="w-5 h-5 flex-shrink-0"/>
+    <h1 class="text-white text-sm font-bold font-[DM_Sans] truncate">
+      ${expense.description}
     </h1>
-    </div>
-    <div class = "flex items-center">
-    <h1 class = "text-[#079F9F] font-['DM_Sans'] font-bold text-xl px-3">${formatToPeso(expense.amount)}</h1>
-    
-    </div>
-    </div>
+  </div>
+
+  <!-- RIGHT: amount, fixed -->
+  <div class="flex items-center px-3 ">
+    <h1 class="text-[#079F9F] font-bold text-md font-[DM_Sans] whitespace-nowrap">
+      ${formatToPeso(expense.amount)}
+    </h1>
+  </div>
+
+</div>
+
 
     `).join('');
 

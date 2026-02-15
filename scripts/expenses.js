@@ -21,8 +21,8 @@ export function addExpense(description, amount, category) {
   expenses.push(expense);
   saveToLocalStorage("expenses", expenses);
   updateTotalExpenses();
-  updateRecentExpenses();
-  updateBiggestExpense();
+  setTimeout(updateRecentExpenses, 3000);
+  setTimeout(updateBiggestExpense,5000);
 }
 
 export function deleteExpense(id) {
