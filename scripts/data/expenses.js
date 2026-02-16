@@ -24,11 +24,10 @@ export function addExpense(description, amount, category) {
   expenses.push(expense);
   saveToLocalStorage("expenses", expenses);
   updateTotalExpenses();
-  setTimeout(updateRecentExpenses, 2000);
-  setTimeout(updateBiggestExpense,3000);
-  setTimeout(() => {
-    updateExpensesChart(expenses);
-  }, 4000 );
+  updateRecentExpenses();
+  updateBiggestExpense();
+  updateExpensesChart(expenses);
+
 }
 
 export function deleteExpense(id) {
@@ -42,14 +41,19 @@ export function deleteExpense(id) {
  updateExpensesChart(expenses);
  }
 
+
 export function getExpensesForToday() {
   const today = dayjs().format('YYYY-MM-DD');
   return expenses.filter(e => e.date === today);
 }
 
 export function getExpensesForWeek() {
-  const weekAgo = dayjs().subtract(7, 'day').format('YYYY-MM-DD');
-  return expenses.filter(e => e.date >= weekAgo);
+  const weekAgo = dayjs().subtract(7, 'day')
+  const today = dayjs();
+  return expenses.filter(e => {
+  const expenseDate = dayjs(e.date);
+  return expenseDate.isSameOrAfter(weekAgo, 'day') && expenseDate.isSameOrBefore(today, 'day');
+  })
 }
 
 export function getAllExpenses () {
@@ -58,7 +62,7 @@ export function getAllExpenses () {
 
 
 
-function getCategoryColor(category) {
+export function getCategoryColor(category) {
    
   const categoryColors = {
     Foods: "#FF6B6B",
@@ -76,7 +80,7 @@ function getCategoryColor(category) {
   return categoryColors[category] || "black";
 }
 
-function getCategoryLogo(category) {
+export function getCategoryLogo(category) {
    
   const categoryLogo = {
     Foods: "../images/category/foods-drinks.png",

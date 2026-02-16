@@ -29,16 +29,17 @@ function showNoDataMessage(canvasParent, legendDiv) {
 
   if (canvasParent) {
     canvasParent.innerHTML = `
-      <div class="title-container">
-        <h3 class="text-xl font-bold text-gray-800 text-center w-full">
-          Expenses by Category
-        </h3>
-      </div>
-      <div class="flex flex-col items-center justify-center py-12">
-        <div class="text-6xl mb-4">📊</div>
-        <p class="text-gray-600 font-semibold">No data yet</p>
-        <p class="text-gray-500 text-sm mt-2">Add expenses to see your chart</p>
-      </div>
+       <div class="title-container">
+          <h3 class="text-xl font-bold text-gray-800 text-center w-full">
+            Expenses by Category
+          </h3>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="text-6xl mb-4">📊</div>
+          <p class="text-gray-600 font-semibold">No data yet</p>
+          <p class="text-gray-500 text-sm mt-2">Add expenses to see your chart</p>
+        </div>
+
     `;
   }
 
