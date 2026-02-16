@@ -12,7 +12,7 @@ import { updateRecentExpenses } from './features/expenses/recentExpenses.js';
 import { updateBiggestExpense } from './features/expenses/biggestExpense.js';
 import { updateExpensesChart } from './charts/expensesChart.js';
 import { expenses } from './data/expenses.js';
-import { initDateFilter } from './features/expenses/expenseVIew.js';
+import { initDateFilter } from './features/expenses/viewExpense.js';
 
 
 

@@ -1,4 +1,4 @@
-import { getCurrentExpenses } from "../features/expenses/expenseVIew.js";
+import { getCurrentExpenses } from "../features/expenses/viewExpense.js";
 import { groupExpensesByCategory } from "../features/expenses/groupExpenses.js";
 
 

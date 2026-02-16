@@ -1,7 +1,7 @@
 
 import { loadSavingsFromStorage, saveToLocalStorage } from "../../core/storage.js";
 import { formatToPeso } from "../../core/utils.js";
-import { getCurrentExpenses } from "./expenseVIew.js";
+import { getCurrentExpenses } from "./viewExpense.js";
 
 
 const savedData = loadSavingsFromStorage("recentExpenses");

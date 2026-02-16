@@ -1,6 +1,6 @@
 import { deleteExpense } from "../data/expenses.js";
 import { addJustifyCenter, formatToPeso, removeJustifyCenter } from "../core/utils.js";
-import { getCurrentExpenses } from "../features/expenses/expenseVIew.js";
+import { getCurrentExpenses } from "../features/expenses/viewExpense.js"
 
 export function initDeleteExpense() {
 const container = document.querySelector('.expenses-container');
@@ -35,7 +35,7 @@ container.innerHTML = expenses.map(expense => `
 
        
     <!-- Date appears here on hover -->
-    <span class="text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap flex-shrink-0">
+    <span class="text-xs text-gray-500 opacity-0 hidden sm:flex group-hover:opacity-100 transition-opacity whitespace-nowrap flex-shrink-0">
       ${dayjs(expense.date).format('MMM D')}
     </span>
 
