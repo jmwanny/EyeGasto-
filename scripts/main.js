@@ -1,18 +1,17 @@
 
-import { addMoneyInSavings, withdrawMoneyInSavings } from '../scripts/savings.js';
-import { renderSavingsHTML } from './renderSavings.js';
-import { showReceipts } from './renderReceipts.js';
-import {initAddExpenseOption} from './modals/addExpense.js';
-import {initAddWithdrawOption} from './modals/addWithdraw.js';
-import { initAddExpense } from './modals/addExpense.js';
-import { renderDateTodayHTML } from './renderDateToday.js';
-import { initDeleteExpense } from './renderExpenses.js';
-import { renderDefaultExpensesHTML } from './renderDefault.js';
-import { updateTotalExpenses } from './totalExpenses.js';
-import { updateRecentExpenses } from './recentExpenses.js';
-import { updateBiggestExpense } from './biggestExpense.js';
+import { addMoneyInSavings, withdrawMoneyInSavings } from './data/savings.js';
+import { renderSavingsHTML } from './ui/renderSavings.js';
+import { showReceipts } from './ui/renderReceipts.js';
+import {initAddExpenseOption, initAddExpense} from './features/expenses/addExpense.js';
+import {initAddWithdrawOption} from './withdrawals/addWithdraw.js';
+import { renderDateTodayHTML } from './ui/renderDateToday.js';
+import { initDeleteExpense } from './ui/renderExpenses.js';
+import { renderDefaultExpensesHTML } from './ui/renderDefault.js';
+import { updateTotalExpenses } from './features/expenses/totalExpenses.js';
+import { updateRecentExpenses } from './features/expenses/recentExpenses.js';
+import { updateBiggestExpense } from './features/expenses/biggestExpense.js';
 import { updateExpensesChart } from './charts/expensesChart.js';
-import { expenses } from './expenses.js';
+import { expenses } from './data/expenses.js';
 
 
 function initApp() {

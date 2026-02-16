@@ -1,6 +1,6 @@
 import "../data/savings.js"
 import { savingsMoney } from "../data/savings.js";
-import { formatToPeso } from "./utils.js";
+import { formatToPeso } from "../core/utils.js";
 
 
 

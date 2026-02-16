@@ -1,5 +1,5 @@
 import { deleteExpense, expenses } from "../data/expenses.js";
-import { addJustifyCenter, formatToPeso, removeJustifyCenter } from "./utils.js";
+import { addJustifyCenter, formatToPeso, removeJustifyCenter } from "../core/utils.js";
 
 export function initDeleteExpense() {
 const container = document.querySelector('.expenses-container');

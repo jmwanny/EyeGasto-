@@ -1,6 +1,6 @@
 import { renderExpensesHTML } from "./renderExpenses.js";
-import { loadSavingsFromStorage } from "./storage.js";
-import { removeJustifyCenter } from "./utils.js";
+import { loadSavingsFromStorage } from "../core/storage.js";
+import { removeJustifyCenter } from "../core/utils.js";
 
 
 export function renderDefaultExpensesHTML() {

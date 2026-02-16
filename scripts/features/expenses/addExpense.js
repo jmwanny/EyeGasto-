@@ -1,6 +1,6 @@
 import { expenses, addExpense } from "../../data/expenses.js";
 import { renderExpensesHTML } from "../../ui/renderExpenses.js";
-import { removeJustifyCenter } from "../utils.js";
+import { removeJustifyCenter } from "../../core/utils.js";
 
 
 

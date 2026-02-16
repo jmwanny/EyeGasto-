@@ -1,6 +1,6 @@
-import { expenses } from "./expenses.js";
-import { loadSavingsFromStorage } from "./storage.js";
-import { formatToPeso } from "./utils.js";
+import { expenses } from "../../data/expenses.js";
+import { loadSavingsFromStorage } from "../../core/storage.js";
+import { formatToPeso } from "../../core/utils.js";
 
 
 const savedData = loadSavingsFromStorage("totalExpenses");

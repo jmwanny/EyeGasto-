@@ -1,4 +1,4 @@
-import { formatDate } from "./utils.js";
+import { formatDate } from "../core/utils.js";
 
 
 export function renderDateTodayHTML () {

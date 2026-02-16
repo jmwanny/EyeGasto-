@@ -1,5 +1,5 @@
 import { hideAddWithdrawOption } from "../withdrawals/addWithdraw.js";
-import { formatToPeso } from "./utils.js";
+import { formatToPeso } from "../core/utils.js";
 import "../core/storage.js";
 import { loadSavingsFromStorage, saveToLocalStorage } from "../core/storage.js";
 
