@@ -41,9 +41,9 @@ container.innerHTML = expenses.map(expense => `
 
     <span class = "absolute left-1/2 -translate-x-1/2  top-full mt-2 w-40 p-2 bg-black text-white text-sm rounded shadow-lg z-50 
     group-hover:block transition-all duration-300 opacity-0 group-hover:opacity-100 pointer-events-none sm:pointer-events-auto">
-     Description: ${expense.description}
-     Date: ${expense.date}
-     Category: ${expense.category}
+     Description: ${expense.description}<br>
+     Date: ${expense.date}<br>
+     Category: ${expense.category}<br>
      Amount: ${formatToPeso(expense.amount)}
     </span>
     
@@ -61,16 +61,17 @@ container.innerHTML = expenses.map(expense => `
 }
 
 export function initExpensesTooltip() {
-  document.querySelectorAll('.expense-card').forEach((card) => {
+  const container = document.querySelector('.expenses-container');
+
+  container.addEventListener('click', (e) => {
+    const card = e.target.closest('.expense-card');
+    if(!card) 
+      return;
+
     const tooltip = card.querySelector('span');
 
-    card.addEventListener('click', () => {
-      if (tooltip.style.opacity === "1") {
-        tooltip.style.opacity = "0";
-      } else {
-        tooltip.style.opacity = "1";
-      }
-    });
-  });
+    tooltip.style.opacity = tooltip.style.opacity === "1" ? "0": "1";
+  })
+
 }
   

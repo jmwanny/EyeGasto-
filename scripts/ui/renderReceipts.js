@@ -15,9 +15,12 @@ export function showReceipts() {
   console.log(transactionsContainer)
 });
 
-closeReceipts();
-
+ closeReceipts();
+ 
 }
+
+
+
 
 
 function updateReceiptHTML() {
@@ -48,6 +51,8 @@ function updateReceiptHTML() {
 function closeReceipts() {
 
   const transactionsContainer = document.querySelector('.transactions-container');
+  const closeBtn = document.querySelector('.js-close-transactions');
+
   if (!transactionsContainer) return;
 
   document.addEventListener('click', (e) => {
@@ -55,7 +60,12 @@ function closeReceipts() {
     if(e.target === transactionsContainer) {
       transactionsContainer.classList.add("hidden");
     }
+  });
+  
+  closeBtn.addEventListener('click', () => {
+    transactionsContainer.classList.add('hidden');
   })
+
 
   }
 

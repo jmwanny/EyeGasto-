@@ -26,7 +26,6 @@ export function updateTotalExpenses() {
 
   loadSavingsFromStorage("totalExpenses", totalExpenses);
 
-  console.log(totalExpenses);
 
   renderTotalExpensesHTML(totalExpenses);
 }

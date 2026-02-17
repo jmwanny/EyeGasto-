@@ -4,16 +4,18 @@ import { renderExpensesHTML } from "../ui/renderExpenses.js";
 import { loadSavingsFromStorage, saveToLocalStorage } from "../core/storage.js";
 import {updateTotalExpenses} from "../features/expenses/totalExpenses.js";
 import { updateExpensesChart } from "../charts/expensesChart.js";
+import { getCurrentExpenses } from "../features/expenses/viewExpense.js";
+
 
 const savedData = loadSavingsFromStorage("expenses");
 
 export let expenses = savedData || []; 
 
 
-export function addExpense(description, amount, category) {
+export function addExpense(description, amount, category, date = dayjs().format('YYYY-MM-DD')) {
   const expense = {
     id: Date.now(),
-    date: dayjs().format('YYYY-MM-DD'),
+    date,
     description,
     category,
     amount: Number(amount),
@@ -23,11 +25,12 @@ export function addExpense(description, amount, category) {
    
   expenses.push(expense);
   saveToLocalStorage("expenses", expenses);
+  renderExpensesHTML();
   updateTotalExpenses();
   updateRecentExpenses();
   updateBiggestExpense();
-  updateExpensesChart(expenses);
-
+  updateExpensesChart(getCurrentExpenses());
+   
 }
 
 export function deleteExpense(id) {
@@ -38,7 +41,7 @@ export function deleteExpense(id) {
  updateTotalExpenses();
  updateRecentExpenses();
  updateBiggestExpense();
- updateExpensesChart(expenses);
+ updateExpensesChart(getCurrentExpenses());
  }
 
 
@@ -48,12 +51,15 @@ export function getExpensesForToday() {
 }
 
 export function getExpensesForWeek() {
-  const weekAgo = dayjs().subtract(7, 'day')
+  const weekAgo = dayjs().subtract(7, 'day');
   const today = dayjs();
+
   return expenses.filter(e => {
-  const expenseDate = dayjs(e.date);
-  return expenseDate.isSameOrAfter(weekAgo, 'day') && expenseDate.isSameOrBefore(today, 'day');
-  })
+    const expenseDate = dayjs(e.date);
+
+    return expenseDate.valueOf() >= weekAgo.valueOf() &&
+           expenseDate.valueOf() <= today.valueOf();
+  });
 }
 
 export function getAllExpenses () {

@@ -1,19 +1,17 @@
+import { savingsMoney } from "../data/savings.js";
+import { renderSavingsHTML } from "../ui/renderSavings.js";
+import { confirmMessage } from "../core/confirmActions.js";
 
 export function initAddWithdrawOption () {
-  const button = document.querySelector('.add-withdraw-money');
+  const showButton = document.querySelector('.add-withdraw-money');
   const closeButton = document.querySelector('.js-close-add-withdraw');
-  const container = document.querySelector('.add-withdraw-option-container');
+  const modal = document.querySelector('.add-withdraw-option-container');
 
-  button.addEventListener('click', () => {
-   container.classList.remove("hidden");
-  })
-  
-   closeButton.addEventListener('click', () => {
-    container.classList.add("hidden");
-  });
+ showButton.addEventListener("click", () => modal.classList.remove("hidden"));
+ closeButton.addEventListener("click", () => modal.classList.add("hidden"));
+
 
 }
-
 
 export function hideAddWithdrawOption (button) {
   const container = document.querySelector('.add-withdraw-option-container');
@@ -23,3 +21,48 @@ export function hideAddWithdrawOption (button) {
   });
 
 }
+
+
+export function hideAddWithdraw () {
+  document.querySelector('.add-withdraw-option-container').classList.add('hidden');
+}
+
+export function initAddWithdraw() {
+
+  const addMoneyBtn = document.querySelector('.js-add-button');
+  const withdrawMoneyBtn = document.querySelector('.js-withdraw-button');
+  const descriptionInput = document.getElementById('description');
+  const amountInput = document.getElementById('amount');
+
+  addMoneyBtn.addEventListener('click', () => {
+    const description = descriptionInput.value.trim();
+    const amount = Number(amountInput.value);
+
+    if(!description || !amount) return alert('Please fill all fields');
+
+    confirmMessage(`Are you sure you want to add ₱${amount}?`, () => {
+      savingsMoney.addMoney(amount, description);
+      descriptionInput.value = '';
+      amountInput.value = '';
+      renderSavingsHTML();
+      hideAddWithdraw();
+    });
+  });
+
+  withdrawMoneyBtn.addEventListener('click', () => {
+    const description = descriptionInput.value.trim();
+    const amount = Number(amountInput.value);
+
+    if(!description || !amount) return alert('Please fill all fields');
+
+    confirmMessage(`Are you sure you want to withdraw ₱${amount}?`, () => {
+      savingsMoney.withdrawMoney(amount, description);
+      descriptionInput.value = '';
+      amountInput.value = '';
+      renderSavingsHTML();
+      hideAddWithdraw();
+    });
+  });
+}
+
+

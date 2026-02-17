@@ -14,9 +14,7 @@ export function updateRecentExpenses () {
 
     saveToLocalStorage("recentExpenses", recentExpenses);
 
-    renderRecentExpensesHTML(recentExpenses)
-
-    console.log(recentExpenses)
+    renderRecentExpensesHTML(recentExpenses);
 }
 
 

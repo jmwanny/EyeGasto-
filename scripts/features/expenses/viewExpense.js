@@ -13,7 +13,7 @@ export function getCurrentExpenses() {
 
   if(currentView === "today") {
     return getExpensesForToday();
-  } else if (currentView === "7days") {
+  } else if (currentView === "last7") {
     return getExpensesForWeek();
   } else if (currentView === "alltime") {
     return getAllExpenses();
@@ -22,11 +22,6 @@ export function getCurrentExpenses() {
   return getExpensesForToday();
 }
 
-
-export function getCurrentView() {
-  const view = document.getElementById("dateFilter");
-  return view.value;
-}
 
 function updateAllUI() {
   renderExpensesHTML();
@@ -37,11 +32,15 @@ function updateAllUI() {
 }
 
 export function initDateFilter () {
-  const selectElement = document.getElementById("dateFilter")
+  const selectElement = document.getElementById("dateFilter");
 
   selectElement.addEventListener("change", (e) => {
     currentView = e.target.value;
     console.log("View changed to: ", currentView);
     updateAllUI();
   })
+}
+
+export function getCurrentView() {
+  return currentView;
 }

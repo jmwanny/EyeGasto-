@@ -3,7 +3,7 @@ import { addMoneyInSavings, withdrawMoneyInSavings } from './data/savings.js';
 import { renderSavingsHTML } from './ui/renderSavings.js';
 import { showReceipts } from './ui/renderReceipts.js';
 import {initAddExpenseOption, initAddExpense} from './features/expenses/addExpense.js';
-import {initAddWithdrawOption} from './withdrawals/addWithdraw.js';
+import {initAddWithdraw, initAddWithdrawOption} from './withdrawals/addWithdraw.js';
 import { renderDateTodayHTML } from './ui/renderDateToday.js';
 import { initDeleteExpense, initExpensesTooltip } from './ui/renderExpenses.js';
 import { renderDefaultExpensesHTML } from './ui/renderDefault.js';
@@ -24,6 +24,7 @@ renderDefaultExpensesHTML();
 addMoneyInSavings();
 withdrawMoneyInSavings();
 initAddWithdrawOption();
+initAddWithdraw();
 initAddExpenseOption();
 showReceipts();
 initAddExpense();
@@ -39,3 +40,4 @@ initEditExpense();
 
 
 document.addEventListener('DOMContentLoaded', initApp);
+

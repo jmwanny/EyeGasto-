@@ -11,7 +11,6 @@ export function groupExpensesByCategory (expenses) {
     }
 
     acc[item.category].total += item.amount;
-      console.log(acc);
     return acc;
   }, {});
 

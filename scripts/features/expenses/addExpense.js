@@ -45,8 +45,6 @@ export function handleAddExpense () {
 
 }
 
-
-
 export function handleAddExpenseDesktop () {
   const descriptionInput = document.getElementById('expense-description-desktop');
   const amountInput = document.getElementById('expense-amount-desktop');
@@ -70,7 +68,6 @@ export function handleAddExpenseDesktop () {
 
   renderExpensesHTML();
   hideAddExpense();
-  console.log(expenses);
 
 }
 
