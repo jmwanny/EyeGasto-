@@ -54,6 +54,7 @@ function showChart(expenses, canvasParent, legendDiv) {
   const categoryColors = categoryNames.map(name => grouped[name].color);
 
   const total = categoryAmounts.reduce((acc, val) => acc + val, 0);
+  const safeTotal = total > 0 ? total : 1;
 
   const canvas = document.getElementById('expensesChart');
   if (!canvas) return;
@@ -98,9 +99,9 @@ function showChart(expenses, canvasParent, legendDiv) {
             callbacks: {
               label: function(context) {
                 const name = context.label;
-                const amount = context.parsed;
-                const percent = ((amount / total) * 100).toFixed(2);
-                return `${name}: ₱${amount} (${percent}%)`;
+                const amount = (context.parsed);
+                const percent = Math.min(((amount / safeTotal) * 100).toFixed(2), 100);
+                return `${name}: ₱${amount.toLocaleString()} (${percent}%)`;
               }
             }
           },
@@ -108,7 +109,7 @@ function showChart(expenses, canvasParent, legendDiv) {
             color: '#fff',
             font: { weight: 'bold', size: 16, family: "'DM Sans', sans-serif" },
             formatter: function(value) {
-              const percent = ((value / total) * 100).toFixed(1);
+              const percent = Math.min(((value / safeTotal) * 100).toFixed(1), 100);
               return percent ? percent + '%' : '';
             },
             anchor: 'center',
@@ -122,12 +123,12 @@ function showChart(expenses, canvasParent, legendDiv) {
     });
   }
 
-  createLegend(grouped, total, legendDiv);
+  createLegend(grouped, safeTotal, legendDiv);
 }
 
 
 
-function createLegend(grouped, total, legendDiv) {
+function createLegend(grouped, safeTotal, legendDiv) {
   if (!legendDiv) return;
 
   let html = '';
@@ -136,7 +137,8 @@ function createLegend(grouped, total, legendDiv) {
     const data = grouped[categoryName];
     const amount = data.total;
     const color = data.color;
-    const percent = ((amount / total) * 100).toFixed(1);
+    const percent = Math.min(((amount / safeTotal) * 100).toFixed(1), 100);
+
 
     html += `
       <div class="flex items-center justify-between py-3 px-4 hover:bg-white/30 rounded-xl transition-all duration-200 cursor-pointer font-['DM_Sans']">

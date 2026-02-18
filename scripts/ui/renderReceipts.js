@@ -43,7 +43,6 @@ export function updateReceiptHTML() {
     `
     <p class = "text-center pt-4">No transactions yet.</p>
     `
-
     return;
    }
 
