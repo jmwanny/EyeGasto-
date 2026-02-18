@@ -121,8 +121,6 @@ You can install EyeGasto directly on your phone or tablet from the browser for a
 
 ## 📷 Screenshots
 
-()
-
 ### Main Ui Desktop (Without Data & With Data)
 ![Dashboard Screenshot](./screenshots/main-ui1.png)
 ![Dashboard Screenshot](./screenshots/main-ui2.png)
