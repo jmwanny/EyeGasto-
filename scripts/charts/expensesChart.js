@@ -50,10 +50,10 @@ function showChart(expenses, canvasParent, legendDiv) {
   const grouped = groupExpensesByCategory(expenses);
 
   const categoryNames = Object.keys(grouped);
-  const categoryAmounts = categoryNames.map(name => grouped[name].total);
+  const categoryAmounts = categoryNames.map(name => parseFloat(grouped[name].total));
   const categoryColors = categoryNames.map(name => grouped[name].color);
 
-  const total = categoryAmounts.reduce((acc, val) => acc + val, 0);
+  const total = categoryAmounts.reduce((acc, val) => acc + Number(val), 0);
   const safeTotal = total > 0 ? total : 1;
 
   const canvas = document.getElementById('expensesChart');
@@ -65,12 +65,8 @@ function showChart(expenses, canvasParent, legendDiv) {
   const ctx = canvas.getContext('2d');
 
   if (window.expensesChartInstance) {
-
-    window.expensesChartInstance.data.labels = categoryNames;
-    window.expensesChartInstance.data.datasets[0].data = categoryAmounts;
-    window.expensesChartInstance.data.datasets[0].backgroundColor = categoryColors;
-    window.expensesChartInstance.update({ duration: 1000, easing: 'easeOutCubic' });
-  } else {
+  window.expensesChartInstance.destroy();
+} 
 
     window.expensesChartInstance = new Chart(ctx, {
       type: 'doughnut',
@@ -100,7 +96,7 @@ function showChart(expenses, canvasParent, legendDiv) {
               label: function(context) {
                 const name = context.label;
                 const amount = (context.parsed);
-                const percent = Math.min(((amount / safeTotal) * 100).toFixed(2), 100);
+                const percent = ((amount / safeTotal) * 100).toFixed(2)
                 return `${name}: ₱${amount.toLocaleString()} (${percent}%)`;
               }
             }
@@ -109,7 +105,7 @@ function showChart(expenses, canvasParent, legendDiv) {
             color: '#fff',
             font: { weight: 'bold', size: 16, family: "'DM Sans', sans-serif" },
             formatter: function(value) {
-              const percent = Math.min(((value / safeTotal) * 100).toFixed(1), 100);
+              const percent = ((value / safeTotal) * 100).toFixed(1)
               return percent ? percent + '%' : '';
             },
             anchor: 'center',
@@ -121,10 +117,12 @@ function showChart(expenses, canvasParent, legendDiv) {
       },
       plugins: [ChartDataLabels]
     });
-  }
+
 
   createLegend(grouped, safeTotal, legendDiv);
-}
+  }
+
+
 
 
 
