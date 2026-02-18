@@ -1,6 +1,7 @@
 import { expenses, addExpense } from "../../data/expenses.js";
 import { renderExpensesHTML } from "../../ui/renderExpenses.js";
 import { removeJustifyCenter } from "../../core/utils.js";
+import { confirmMessage } from "../../core/confirmActions.js";
 
 
 
@@ -29,11 +30,11 @@ export function handleAddExpense () {
  const amount =  Number(amountInput.value);
  const categoryValue = categorySelect.value;
 
- 
 
   if (!description || !amount || !categoryValue) 
   return alert("Please fill all fields!");
-
+  
+  confirmMessage(`Are you sure you want to add ${description} as your expense?`, () => {
   addExpense(description,amount,categoryValue);
 
   descriptionInput.value = '';
@@ -43,6 +44,7 @@ export function handleAddExpense () {
   renderExpensesHTML();
   hideAddExpense();
 
+})
 }
 
 export function handleAddExpenseDesktop () {
@@ -60,8 +62,9 @@ export function handleAddExpenseDesktop () {
   if (!description || !amount || !categoryValue) 
   return alert("Please fill all fields!");
 
-  addExpense(description,amount,categoryValue);
 
+  confirmMessage(`Are you sure you want to add <strong>${description}</strong> as your expense?`, () => {
+  addExpense(description,amount,categoryValue);
   descriptionInput.value = '';
   amountInput.value = '';
   categorySelect.value = '';
@@ -69,6 +72,7 @@ export function handleAddExpenseDesktop () {
   renderExpensesHTML();
   hideAddExpense();
 
+})
 }
 
 

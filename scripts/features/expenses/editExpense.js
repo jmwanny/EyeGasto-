@@ -6,6 +6,7 @@ import { updateRecentExpenses } from "./recentExpenses.js";
 import { updateTotalExpenses } from "./totalExpenses.js";
 import { renderExpensesHTML } from "../../ui/renderExpenses.js";
 import { formatToPeso } from "../../core/utils.js";
+import { confirmMessage } from "../../core/confirmActions.js";
 
 
 
@@ -13,13 +14,14 @@ export function initEditExpense () {
    const container =  document.querySelector('.expenses-container');
    container.addEventListener('click', (e) => {
     if (e.target.classList.contains("js-edit-button")) {
+      const description = e.target.dataset.name;
       const id = Number(e.target.dataset.id);
-      openEditForm(id);
+      openEditForm(description,id);
     }
    })
 }
 
-function openEditForm(id) {
+function openEditForm(description, id) {
 
   const expense = expenses.find(e => e.id === id);
   if (!expense) 
@@ -37,14 +39,16 @@ function openEditForm(id) {
   addButton.classList.add("hidden");
   saveButton.classList.remove("hidden");
 
- saveButton.addEventListener('click', () => {
+ saveButton.onclick = () => {
+  confirmMessage(`Do you wish to save this changes to <strong>${description}</strong>?`, () => {
   saveEditedExpense(id);
   modal.classList.add('hidden');
   saveButton.classList.add('hidden');
   addButton.classList.remove('hidden');
   renderExpensesHTML();
-
- });
+ 
+  })
+ };
 
 }
 

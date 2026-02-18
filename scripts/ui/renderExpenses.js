@@ -1,17 +1,5 @@
-import { deleteExpense } from "../data/expenses.js";
 import { addJustifyCenter, formatToPeso, removeJustifyCenter } from "../core/utils.js";
 import { getCurrentExpenses } from "../features/expenses/viewExpense.js"
-
-export function initDeleteExpense() {
-const container = document.querySelector('.expenses-container');
-
-container.addEventListener('click', (e) => {
-  if (e.target.classList.contains('js-trash-button')) {
-    deleteExpense(e.target.dataset.id);
-  }
-});
-}
-
 
 export function renderExpensesHTML() {
   const container = document.querySelector('.expenses-container');
@@ -51,9 +39,9 @@ container.innerHTML = expenses.map(expense => `
       ${formatToPeso(expense.amount)}
     </h1>
     
-    <i class="fa-solid fa-trash js-trash-button cursor-pointer flex-shrink-0 hover:text-red-600 transition-colors" data-id="${expense.id}"></i>
+    <i class="fa-solid fa-trash js-trash-button cursor-pointer flex-shrink-0 hover:text-red-600 transition-colors" data-id="${expense.id}" data-name ="${expense.description}"></i>
 
-    <i class="fa-solid fa-pen js-edit-button cursor-pointer flex-shrink-0 hover:text-blue-600 transition-colors" data-id="${expense.id}"></i>
+    <i class="fa-solid fa-pen js-edit-button cursor-pointer flex-shrink-0 hover:text-blue-600 transition-colors" data-id="${expense.id}" data-name ="${expense.description}"></i>
 
   </div>
 `).join('');

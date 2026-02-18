@@ -2,30 +2,39 @@ import "../data/savings.js"
 import { savingsMoney } from "../data/savings.js";
 import { formatToPeso } from "../core/utils.js";
 
+console.log(savingsMoney)
 
 
 
-export function showReceipts() {
-  const receiptBtn = document.querySelector('.js-receipt-btn');
-  const transactionsContainer = document.querySelector('.transactions-container');
+export function initReceipts() {
 
-  receiptBtn.addEventListener('click', () => {
-  transactionsContainer.classList.remove("hidden");
-  updateReceiptHTML();
-  console.log(transactionsContainer)
+  
+const receiptBtn = document.querySelector('.js-receipt-btn');
+const transactionsContainer = document.querySelector('.transactions-container');
+const closeBtn = document.querySelector('.js-close-transactions');
+
+
+receiptBtn.addEventListener('click', () => {
+transactionsContainer.classList.remove('hidden');
+updateReceiptHTML();
+})
+
+if(closeBtn)
+closeBtn.addEventListener('click', () => {
+transactionsContainer.classList.add('hidden')
 });
 
- closeReceipts();
- 
+transactionsContainer.addEventListener('click', (e) => {
+  if(e.target === transactionsContainer) {
+    transactionsContainer.classList.add('hidden');
+  }
+})
 }
 
 
+export function updateReceiptHTML() {
+  const receiptsContainer = document.querySelector('.receipts-container');
 
-
-
-function updateReceiptHTML() {
-
-  const receiptContainer = document.querySelector('.receipts-container');
    let html = "";
 
 
@@ -44,28 +53,6 @@ function updateReceiptHTML() {
 
   });
 
-  receiptContainer.innerHTML = html;
+  receiptsContainer.innerHTML = html;
 }
-
-
-function closeReceipts() {
-
-  const transactionsContainer = document.querySelector('.transactions-container');
-  const closeBtn = document.querySelector('.js-close-transactions');
-
-  if (!transactionsContainer) return;
-
-  document.addEventListener('click', (e) => {
-   
-    if(e.target === transactionsContainer) {
-      transactionsContainer.classList.add("hidden");
-    }
-  });
-  
-  closeBtn.addEventListener('click', () => {
-    transactionsContainer.classList.add('hidden');
-  })
-
-
-  }
 

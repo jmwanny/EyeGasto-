@@ -7,15 +7,15 @@ export function confirmMessage(message, onConfirm) {
 
   modal.innerHTML = 
   `
-  <div class="js-close-confirm-message absolute top-5 right-5 text-white text-xl">
+  <div class="js-close-confirm-message absolute top-5 right-5 text-white text-xl p-3">
       <i class="fa-solid fa-x cursor-pointer"></i>
     </div>
 
-      <div class="inner-card rounded-xl p-6 flex flex-row items-center gap-4 w-full max-w-[500px]">
+      <div class="inner-card rounded-xl p-6 flex flex-row items-center gap-2 w-full max-w-[500px]">
         
-        <h1 id = "confirm-message">${message}</h1>
-        <button class = "text-white bg-green-500 p-2 px-5 rounded-md js-yes-button cursor-pointer ">Yes</button>
-        <button class="text-white bg-red-600 p-2 px-5 rounded-md js-no-button cursor-pointer">No</button>
+        <h1 id = "confirm-message" class = "font-['DM_Sans'] text-[14px]">${message}</h1>
+        <button class = "text-white bg-green-500 p-2 px-5 rounded-md js-yes-button cursor-pointer font-['DM_Sans'] sm:text-base">Yes</button>
+        <button class="text-white bg-red-600 p-2 px-5 rounded-md js-no-button cursor-pointer font-['DM_Sans']">No</button>
       </div>
   </div>
   `  
