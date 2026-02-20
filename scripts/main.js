@@ -17,10 +17,12 @@ import { initDeleteExpense } from './features/expenses/deleteExpense.js';
 import { initTDateFilter } from './features/transactions/viewTransactions.js';
 import { initAddEditBudget, initSetBudgetModal } from './budget/addBudget.js';
 import { renderBudget } from './ui/renderBudget.js';
+import { initShowGreetings } from './notifs/notifications.js';
 
 
 
 function initApp() {
+initShowGreetings();
 renderSavingsHTML();
 renderExpensesFilter();
 renderTransactionsFilter();

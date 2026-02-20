@@ -18,5 +18,9 @@ export function loadSavingsFromStorage(name) {
 
 } else if (name === "budget") {
   return saved ? JSON.parse(saved):0;
-}
+  } else if (name === "user") {
+    return saved ? JSON.parse(saved) : null;
+  } else {
+    return saved ? JSON.parse (saved): null;
+  }
 }

@@ -1,31 +1,60 @@
-import { loadSavingsFromStorage } from "../core/storage.js";
-import { expenses } from "../data/expenses.js";
+import { loadSavingsFromStorage, saveToLocalStorage } from "../core/storage.js";
 
-let checkExpenses = loadSavingsFromStorage('expenses');
-let checkSavings = loadSavingsFromStorage('savings');
-let checkBudget = loadSavingsFromStorage('budget');
+let savedUser = loadSavingsFromStorage('user');
+let savedName = loadSavingsFromStorage('savedName');
+
+let isNewUser = savedUser === null ? true : false;
+let username = savedName || "Tracker";
 
 export const user = {
-  name: "",
+  name: username,
 
   setUser (name) {
    this.name = name;
+   saveToLocalStorage('savedName', name);
   }
 }
 
-export function checkIfNewUser() {
-  return(checkExpenses.length === 0 && checkSavings.money === 0 && checkSavings.transactions.length === 0  && !checkBudget);
-}
 
 export function initShowGreetings () {
-  const isNewUser = checkIfNewUser();
+  const card = document.getElementById('greeting-card');
+  const container = document.querySelector('.super-container');
+  const button = document.getElementById('start-tracking-btn');
+  const inputName = document.getElementById('user-name-input');
+
+
   if(isNewUser){
-
+  card.classList.remove('hidden');
+  container.classList.add('hidden');
+  } else {
+  card.classList.add('hidden');
+  container.classList.remove('hidden');
   }
-}
 
-console.log(checkIfNewUser());
+  button.addEventListener('click', () => {
 
+  const inputValue = inputName.value.trim();
+
+    user.setUser(inputValue);
+
+        card.classList.add('hidden');
+    container.classList.remove('hidden');
+
+     if(isNewUser) {
+      showNotif('newUser')
+        isNewUser = false;
+
+      saveToLocalStorage('user', isNewUser);
+    } 
+
+  })
+   
+  if(!isNewUser){
+    showNotif('existingUser');
+  }
+  }
+
+    console.log(user.name);
 
 const NOTIF_TYPES = {
   budgetOut: {
@@ -53,9 +82,9 @@ const NOTIF_TYPES = {
     bar: '#00d4a0',
   },
 
-  newUser: {
+newUser: {
   emoji: '🎉',
-  title: 'Welcome Aboard!',
+  title: `Welcome Aboard <strong>${user.name}</strong>!`,
   message: `Hi there! We're excited to have you start your budgeting journey today!`,
   bg: 'linear-gradient(135deg,#1a2a3a,#0b1f2e)',
   border: 'rgba(0,212,160,0.45)',
@@ -64,7 +93,7 @@ const NOTIF_TYPES = {
 
 existingUser: {
   emoji: '👋',
-  title: 'Welcome Back!',
+  title: `Welcome Back <strong>${user.name}</strong>!`,
   message: `Good to see you again! Let's make today another productive day for your budget.`,
   bg: 'linear-gradient(135deg,#102a20,#083d28)',
   border: 'rgba(0,150,255,0.45)',
@@ -76,15 +105,17 @@ export function showNotif(type) {
   const t = NOTIF_TYPES[type];
   if (!t) return;
 
+  const title = type === 'newUser' ? `Welcome Aboard <strong>${user.name}</strong>!`: t.title;
+
   const container = document.getElementById('notif-container');
   const el = document.createElement('div');
-  el.className = 'notif';
+  el.className = `notif font-['Poppins']`;
   el.style.cssText = `background:${t.bg}; border-color:${t.border};`;
 
   el.innerHTML = `
     <div style="font-size:30px;flex-shrink:0">${t.emoji}</div>
     <div style="flex:1;min-width:0">
-      <div class="fredoka" style="color:#fff;font-size:15px;margin-bottom:2px">${t.title}</div>
+      <div class="fredoka font-bold" style="color:#fff;font-size:15px;margin-bottom:2px">${title}</div>
       <div style="color:rgba(210,240,245,0.85);font-size:12px;font-weight:600;line-height:1.4">${t.message}</div>
     </div>
     <button onclick="dismissNotif(this)" style="color:rgba(255,255,255,0.35);font-size:16px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0">✕</button>
