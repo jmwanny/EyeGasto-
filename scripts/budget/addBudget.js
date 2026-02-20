@@ -58,7 +58,7 @@ export function initAddEditBudget() {
     return alert('Please enter a valid amount!');
   }
   
-    confirmMessage(`Are you sure you want to edit <strong> ${amount}</strong> for today's budget?`, () =>  {
+    confirmMessage(`Are you sure you want to save <strong> ${amount}</strong> for today's budget?`, () =>  {
 
     budget.editBudget(amount);
     renderBudget();

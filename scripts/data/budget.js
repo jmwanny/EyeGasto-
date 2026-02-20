@@ -35,7 +35,6 @@ export let budget = {
   },
 
   refund(amount) {
-
     this.budget = Math.min(this.budget + amount, this.originalBudget);
     saveToLocalStorage('budget', this.budget);
     this.checkBudgetStatus(); 
@@ -48,9 +47,24 @@ export let budget = {
 
     const percentLeft = (this.budget / this.originalBudget) * 100;
 
-    if (this.budget <= 0)    
-      return showNotif('budgetOut'); 
-    if (percentLeft <= 50)  
-       return showNotif('budgetLow');
+    if (this.budget <= 0){
+      if(!this._outShown) {
+      this._outShown = true;
+      showNotif('budgetOut');
+     }  
+  return;
+}
+    if (percentLeft <= 50) {
+      if(!this._lowShown) {
+        this._lowShown = true;
+        showNotif('budgetLow');
+      }
+      return;
+    }
+
+  this._outShown = false;
+  this._lowShown = false;
   },
+
+  
 };

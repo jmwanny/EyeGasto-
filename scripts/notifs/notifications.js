@@ -1,4 +1,30 @@
-import { formatToPeso } from "../core/utils.js";
+import { loadSavingsFromStorage } from "../core/storage.js";
+import { expenses } from "../data/expenses.js";
+
+let checkExpenses = loadSavingsFromStorage('expenses');
+let checkSavings = loadSavingsFromStorage('savings');
+let checkBudget = loadSavingsFromStorage('budget');
+
+export const user = {
+  name: "",
+
+  setUser (name) {
+   this.name = name;
+  }
+}
+
+export function checkIfNewUser() {
+  return(checkExpenses.length === 0 && checkSavings.money === 0 && checkSavings.transactions.length === 0  && !checkBudget);
+}
+
+export function initShowGreetings () {
+  const isNewUser = checkIfNewUser();
+  if(isNewUser){
+
+  }
+}
+
+console.log(checkIfNewUser());
 
 
 const NOTIF_TYPES = {
@@ -21,11 +47,29 @@ const NOTIF_TYPES = {
   greetings: {
     emoji: '🎉',
     title: 'Congratulations!',
-    message: `Wow you have a huge budget for today!`,
+    message: `Wow that's a great budget for today!`,
     bg: 'linear-gradient(135deg,#102a20,#083d28)',
     border: 'rgba(0,212,160,0.45)',
     bar: '#00d4a0',
   },
+
+  newUser: {
+  emoji: '🎉',
+  title: 'Welcome Aboard!',
+  message: `Hi there! We're excited to have you start your budgeting journey today!`,
+  bg: 'linear-gradient(135deg,#1a2a3a,#0b1f2e)',
+  border: 'rgba(0,212,160,0.45)',
+  bar: '#00d4a0',
+},
+
+existingUser: {
+  emoji: '👋',
+  title: 'Welcome Back!',
+  message: `Good to see you again! Let's make today another productive day for your budget.`,
+  bg: 'linear-gradient(135deg,#102a20,#083d28)',
+  border: 'rgba(0,150,255,0.45)',
+  bar: '#0096ff',
+},
 };
 
 export function showNotif(type) {
@@ -47,7 +91,9 @@ export function showNotif(type) {
     <div class="notif-bar" style="background:${t.bar}"></div>
   `;
 
-  el.onclick = (e) => { if (e.target.tagName !== 'BUTTON') dismissNotif(el.querySelector('button')); };
+  el.onclick = (e) => { 
+    if (e.target.tagName !== 'BUTTON')
+       dismissNotif(el.querySelector('button')); };
   container.appendChild(el);
   setTimeout(() => dismissNotif(el.querySelector('button')), 4200);
 }
@@ -59,22 +105,3 @@ export function dismissNotif(btn) {
   setTimeout(() => el.remove(), 380);
 }
 
-export function checkBudget(currentBudget, originalBudget) {
-  const percentLeft = (currentBudget / originalBudget) * 100;
-
-  if (currentBudget <= 0) {
-    if (!checkBudget._outShown) { 
-      checkBudget._outShown = true; showNotif('budgetOut');
-     }
-    return;
-  }
-  if (percentLeft < 50) {
-    if (!checkBudget._lowShown) { 
-      checkBudget._lowShown = true; showNotif('budgetLow');
-     }
-    return;
-  }
-
-  checkBudget._outShown = false;
-  checkBudget._lowShown = false;
-}

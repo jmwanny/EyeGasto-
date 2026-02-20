@@ -8,7 +8,6 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-600: oklch(57.7% 0.245 27.325);
-    --color-red-700: oklch(50.5% 0.213 27.518);
     --color-red-800: oklch(44.4% 0.177 26.899);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-green-700: oklch(52.7% 0.154 150.069);
@@ -302,9 +301,6 @@
   .h-\[30px\] {
     height: 30px;
   }
-  .h-\[50px\] {
-    height: 50px;
-  }
   .h-auto {
     height: auto;
   }
@@ -313,27 +309,6 @@
   }
   .max-h-\[50vh\] {
     max-height: 50vh;
-  }
-  .max-h-\[236px\] {
-    max-height: 236px;
-  }
-  .max-h-\[250px\] {
-    max-height: 250px;
-  }
-  .max-h-\[255px\] {
-    max-height: 255px;
-  }
-  .max-h-\[256px\] {
-    max-height: 256px;
-  }
-  .max-h-\[257px\] {
-    max-height: 257px;
-  }
-  .max-h-\[258px\] {
-    max-height: 258px;
-  }
-  .max-h-\[260px\] {
-    max-height: 260px;
   }
   .max-h-\[262px\] {
     max-height: 262px;
@@ -365,6 +340,9 @@
   .w-40 {
     width: calc(var(--spacing) * 40);
   }
+  .w-\[10\%\] {
+    width: 10%;
+  }
   .w-\[24px\] {
     width: 24px;
   }
@@ -392,6 +370,9 @@
   .w-\[100px\] {
     width: 100px;
   }
+  .w-auto {
+    width: auto;
+  }
   .w-full {
     width: 100%;
   }
@@ -413,17 +394,8 @@
   .max-w-\[550px\] {
     max-width: 550px;
   }
-  .max-w-\[570px\] {
-    max-width: 570px;
-  }
-  .max-w-\[590px\] {
-    max-width: 590px;
-  }
   .min-w-0 {
     min-width: calc(var(--spacing) * 0);
-  }
-  .min-w-\[30px\] {
-    min-width: 30px;
   }
   .min-w-\[50px\] {
     min-width: 50px;
@@ -498,9 +470,6 @@
   }
   .justify-center {
     justify-content: center;
-  }
-  .justify-end {
-    justify-content: flex-end;
   }
   .justify-start {
     justify-content: flex-start;
@@ -656,9 +625,6 @@
   .p-7 {
     padding: calc(var(--spacing) * 7);
   }
-  .p-12 {
-    padding: calc(var(--spacing) * 12);
-  }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
@@ -682,6 +648,9 @@
   }
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
+  }
+  .py-5 {
+    padding-block: calc(var(--spacing) * 5);
   }
   .py-6 {
     padding-block: calc(var(--spacing) * 6);
@@ -710,9 +679,6 @@
   .text-center {
     text-align: center;
   }
-  .text-end {
-    text-align: end;
-  }
   .align-middle {
     vertical-align: middle;
   }
@@ -724,6 +690,9 @@
   }
   .font-\[\'Lilita_One\'\] {
     font-family: 'Lilita One';
+  }
+  .font-\[\'Poppins\'\] {
+    font-family: 'Poppins';
   }
   .font-\[DM_Sans\] {
     font-family: DM Sans;
@@ -767,8 +736,8 @@
   .text-\[clamp\(0\.75rem\,2vw\,1rem\)\] {
     font-size: clamp(0.75rem, 2vw, 1rem);
   }
-  .text-\[clamp\(2\.5rem\,5vw\,3\.5rem\)\] {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  .text-\[clamp\(2\.6rem\,5vw\,3\.5rem\)\] {
+    font-size: clamp(2.6rem, 5vw, 3.5rem);
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
@@ -944,11 +913,6 @@
   .sm\:flex {
     @media (width >= 40rem) {
       display: flex;
-    }
-  }
-  .sm\:hidden {
-    @media (width >= 40rem) {
-      display: none;
     }
   }
   .sm\:w-\[800px\] {
