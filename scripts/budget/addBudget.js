@@ -28,6 +28,7 @@ export function initAddEditBudget() {
   const addButton = document.getElementById('js-add-budget');
   const editButton = document.getElementById('js-edit-budget');
   const input = document.getElementById('budget-amount');
+  const currentBudget = document.querySelector('.currentBudget');
   
 
   addButton.addEventListener('click', () => {
@@ -38,7 +39,7 @@ export function initAddEditBudget() {
     }
 
     confirmMessage(`Are you sure you want to add <strong>${amount}</strong> for today's budget?`, () =>  {
-    if(amount)
+
     budget.addBudget(amount);
     renderBudget();
     showNotif('greetings');
@@ -59,7 +60,6 @@ export function initAddEditBudget() {
   }
   
     confirmMessage(`Are you sure you want to save <strong> ${amount}</strong> for today's budget?`, () =>  {
-
     budget.editBudget(amount);
     renderBudget();
     budget.checkBudgetStatus();
@@ -68,6 +68,4 @@ export function initAddEditBudget() {
   })
 
 })
-
-
 }

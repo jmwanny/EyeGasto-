@@ -2,6 +2,7 @@ import { expenses, addExpense } from "../../data/expenses.js";
 import { renderExpensesHTML } from "../../ui/renderExpenses.js";
 import { removeJustifyCenter } from "../../core/utils.js";
 import { confirmMessage } from "../../core/confirmActions.js";
+import { renderBudget } from "../../ui/renderBudget.js";
 
 
 
@@ -43,6 +44,7 @@ export function handleAddExpense () {
 
   renderExpensesHTML();
   hideAddExpense();
+  renderBudget();
 
 })
 }

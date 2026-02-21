@@ -8,6 +8,9 @@ const savedOriginal = loadSavingsFromStorage('budgetOriginal') ?? 0;
 export let budget = {
   budget: savedData,
   originalBudget: savedOriginal,
+   _outShown: false,
+  _lowShown: false,
+  _exceedShow: false,
 
   addBudget(amount) {
     if (amount <= 0) return alert('Please enter a valid number!');
@@ -45,9 +48,10 @@ export let budget = {
  
   checkBudgetStatus() {
 
-    const percentLeft = (this.budget / this.originalBudget) * 100;
-
-
+    const percentLeft =   this.originalBudget === 0
+    ? 0
+    : (this.budget / this.originalBudget) * 100;
+ 
     if(this.budget < 0) {
       if(!this._exceedShow) {
         this._exceedShow = true;
@@ -76,6 +80,10 @@ export let budget = {
   this._lowShown = false;
   this._exceedShow = false;
   },
-
+ 
+  get isbelowZero() {
+    return this.budget < 0;
+  }
   
 };
+
