@@ -1,6 +1,6 @@
 # 👁️ EyeGasto – Smart Expense Tracker
 
-EyeGasto is a modern and responsive **expense tracker web app** that helps users manage their money like a simple digital bank account.
+EyeGasto is a cozy modern and responsive **expense tracker web app** that helps users manage their money like a simple digital bank account.
 
 Track expenses, monitor your balance, set daily budgets, and analyze your spending habits with interactive charts — all in one clean interface.
 
@@ -25,6 +25,11 @@ Track expenses, monitor your balance, set daily budgets, and analyze your spendi
 ---
 
 # ✨ Features
+
+## ✨ Cozy UI & Animations
+
+- EyeGasto features a cozy and friendly interface with custom-made animations.  
+The start card smoothly fades in to welcome users, shiny interactive buttons add a playful feel, and subtle UI animations appear each time the app opens to make the experience smooth, lively, and enjoyable.
 
 ## 💰 Balance / Savings System
 
