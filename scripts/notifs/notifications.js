@@ -54,8 +54,6 @@ export function initShowGreetings () {
   }
   }
 
-    console.log(user.name);
-
 const NOTIF_TYPES = {
   budgetOut: {
     emoji: '😱',

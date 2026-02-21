@@ -69,6 +69,5 @@ export function initAddEditBudget() {
 
 })
 
-  console.log(addButton);
 
 }
