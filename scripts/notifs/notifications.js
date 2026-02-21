@@ -55,6 +55,14 @@ export function initShowGreetings () {
   }
 
 const NOTIF_TYPES = {
+  budgetExceeded: {
+    emoji: '😱',
+    title: "Oops!",
+    message: "You've exceeded today's budget limit. Please pause spending! 🛑",
+    bg: 'linear-gradient(135deg,#2a1218,#3d1212)',
+    border: 'rgba(255,100,100,0.45)',
+    bar: '#ff4e4e',
+  },
   budgetOut: {
     emoji: '😱',
     title: "Budget's All Gone!",
@@ -92,7 +100,20 @@ newUser: {
 existingUser: {
   emoji: '👋',
   title: `Welcome Back <strong>${user.name}</strong>!`,
-  message: `Good to see you again! Let's make today another productive day for your budget.`,
+  message: {
+  a: `Good to see you again! Let's make today another productive day for your budget.`,
+  b: `Welcome back! Ready to stay on top of your spending today?`,
+  c: `A fresh start for your budget today. You've got this! 💪`,
+  d: `Back again! Let's keep your finances on track.`,
+  e: `Another day, another chance to manage your budget wisely.`,
+  f: `Hey there! Let's make smart money moves today.`,
+  g: `Welcome back! Your budget is ready when you are.`,
+  h: `Time to check in on your budget and keep things balanced.`,
+  i: `New day, new budget goals. Let's go!`,
+  j: `Glad you're here! Let's keep your spending in check today.`,
+  k: `Your budget journey continues today—let's make it count.`,
+  l: `Welcome back! Small decisions today build stronger finances tomorrow.`,
+},
   bg: 'linear-gradient(135deg,#102a20,#083d28)',
   border: 'rgba(0,150,255,0.45)',
   bar: '#0096ff',
@@ -102,6 +123,15 @@ existingUser: {
 export function showNotif(type) {
   const t = NOTIF_TYPES[type];
   if (!t) return;
+
+   let message = t.message;
+
+   if(type === "existingUser") {
+   let existingUserMessages = Object.keys(t.message);
+   let randomIndex = Math.floor(Math.random() * existingUserMessages.length);
+   const randomMessage = existingUserMessages[randomIndex];
+    message = t.message[randomMessage];
+   }
 
   const title = type === 'newUser' ? `Welcome Aboard <strong>${user.name}</strong>!`: t.title;
 
@@ -114,7 +144,7 @@ export function showNotif(type) {
     <div style="font-size:30px;flex-shrink:0">${t.emoji}</div>
     <div style="flex:1;min-width:0">
       <div class="fredoka font-bold" style="color:#fff;font-size:15px;margin-bottom:2px">${title}</div>
-      <div style="color:rgba(210,240,245,0.85);font-size:12px;font-weight:600;line-height:1.4">${t.message}</div>
+      <div style="color:rgba(210,240,245,0.85);font-size:12px;font-weight:600;line-height:1.4">${message}</div>
     </div>
     <button onclick="dismissNotif(this)" style="color:rgba(255,255,255,0.35);font-size:16px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0">✕</button>
     <div class="notif-bar" style="background:${t.bar}"></div>

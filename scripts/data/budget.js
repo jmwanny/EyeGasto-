@@ -14,6 +14,7 @@ export let budget = {
     this.budget += amount;
     this.originalBudget += amount;
     saveToLocalStorage('budget', this.budget);
+    saveToLocalStorage('budgetOriginal', this.originalBudget); 
   },
 
   editBudget(amount) {
@@ -29,7 +30,7 @@ export let budget = {
   },
 
   deduct(amount) {
-      this.budget = Math.max(this.budget - amount, 0);
+      this.budget = this.budget - amount;
       saveToLocalStorage('budget', this.budget);
       this.checkBudgetStatus()
   },
@@ -43,11 +44,19 @@ export let budget = {
 
  
   checkBudgetStatus() {
-    if (this.originalBudget <= 0) return; 
 
     const percentLeft = (this.budget / this.originalBudget) * 100;
 
-    if (this.budget <= 0){
+
+    if(this.budget < 0) {
+      if(!this._exceedShow) {
+        this._exceedShow = true;
+        showNotif('budgetExceeded');
+      }
+      return;
+    }
+
+    if (this.budget === 0){
       if(!this._outShown) {
       this._outShown = true;
       showNotif('budgetOut');
@@ -62,8 +71,10 @@ export let budget = {
       return;
     }
 
+
   this._outShown = false;
   this._lowShown = false;
+  this._exceedShow = false;
   },
 
   
