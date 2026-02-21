@@ -1,174 +1,286 @@
-# 👁️ EyeGasto – Expense Tracker App
+# 👁️ EyeGasto – Smart Expense Tracker
 
-## 🖥️ Tech Stack
+EyeGasto is a modern and responsive **expense tracker web app** that helps users manage their money like a simple digital bank account.
+
+Track expenses, monitor your balance, set daily budgets, and analyze your spending habits with interactive charts — all in one clean interface.
+
+---
+
+# 🚀 Live Demo
+
+🔗 https://eye-gasto.vercel.app/
+
+---
+
+# 🖥️ Tech Stack
 
 <p align="left">
-  <img alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
-  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-  <img alt="Chart.js" src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chart.js&logoColor=white" />
-  <img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+  <img alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+  <img alt="TailwindCSS" src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+  <img alt="ChartJS" src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chart.js&logoColor=white"/>
+  <img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
 </p>
 
+---
 
-EyeGasto is a modern, responsive **expense tracker web application** that helps you manage your money like a digital bank account.
+# ✨ Features
 
-Track your savings, monitor expenses, analyze spending habits, and visualize your financial activity — all in one clean interface.
+## 💰 Balance / Savings System
+
+- Add money to your balance  
+- Withdraw money anytime  
+- Real-time balance tracking  
+- Transaction recording  
 
 ---
 
-## 🚀 Live Demo
+# 📊 Daily Budget Tracking
 
-🔗 Deployed on Vercel  
-(https://eye-gasto.vercel.app/)
+EyeGasto includes a **daily budget system**.
 
----
+- Set your daily budget
+- Expenses automatically deduct from the budget
+- Deleting an expense refunds the budget
+- Helps users stay within their spending limit
 
-## ✨ Features
+### Notifications
 
-### 💰 Savings Management (Bank-Like System)
-- Add money to your balance
-- Withdraw money
-- Real-time balance tracking
-- Keep an eye on your available funds
-
-### 🧾 Transactions History
-View your recent transactions filtered by:
-- 📅 Today  
-- 📆 Last 7 Days  
-- 🕒 All Time  
-
-### ➕ Add Expenses
-Create new expenses with:
-- Expense name
-- Amount
-- Category selection
-
-#### 📂 Available Categories:
-- 🍔 Food
-- 🚗 Transport
-- 🛍️ Shopping
-- 💡 Bills
-- 🏥 Health
-- 🎮 Entertainment
-- 📚 Education
-- 💰 Savings
-- 💳 Debt
-- 📦 Others
-
-Each category includes:
-- Custom color styling
-- Unique category icon/logo
-
-### 📊 Expense Filtering
-Expense container supports filtering by:
-- Today
-- Last 7 Days
-- All Time
-
-### 📈 Analytics Dashboard
-EyeGasto gives you financial insights such as:
-- 💵 Total Expenses
-- 🔥 Biggest Expense Today (shows name + category)
-- 🕒 Recent Expenses
-- 📊 Category-based spending breakdown (Chart.js)
-
-Charts are powered by **Chart.js**, allowing you to:
-- Visualize spending per category
-- Track where your money goes
-- Analyze spending trends
-
-### 🛠️ Edit & Delete with Error Handling
-- Edit existing expense cards
-- Delete expenses
-- Confirmation prompts before deletion
-- Validation handling to prevent invalid inputs
+- ⚠ Budget running low  
+- 🚨 Budget fully spent  
 
 ---
 
-## 💾 Data Storage
+# ➕ Expense Management
 
-Currently, EyeGasto uses **Local Storage** to temporarily save:
-- Balance data  
-- Transactions  
-- Expenses  
-- Category records  
+### Add Expense
+Create expenses with:
 
-This means:
-- Data persists after page refresh
-- Data is stored locally in the browser
-- No backend or database is connected (yet)
+- Name  
+- Amount  
+- Category  
 
-⚠ Clearing browser data will remove saved information.  
-Future updates may include database integration for permanent storage.
+### Edit Expense
+- Update existing expenses
+- Data updates instantly
+
+### Delete Expense
+- Confirmation before deletion
+- Budget auto-adjusts
+- Error handling included
+
 ---
 
-## 📱 Responsive Design
+# 📂 Categories
 
-EyeGasto is fully responsive and works across:
+- 🍔 Food  
+- 🚗 Transport  
+- 🛍 Shopping  
+- 💡 Bills  
+- 🏥 Health  
+- 🎮 Entertainment  
+- 📚 Education  
+- 💰 Savings  
+- 💳 Debt  
+- 📦 Others  
+
+Each category includes custom styling and icons.
+
+---
+
+# 📅 Expense Filters
+
+Filter your expenses by:
+
+- Today  
+- Last 7 Days  
+- All Time  
+
+---
+
+# 📈 Analytics Dashboard
+
+The dashboard provides insights like:
+
+- Total Expenses  
+- Biggest Expense Today  
+- Recent Transactions  
+- Category Spending Chart  
+
+Powered by **Chart.js**.
+
+---
+
+# 👋 Personalized Welcome System
+
+EyeGasto includes a **Start Card Modal**.
+
+### First Time Users
+- Enter your name
+- Receive a welcome message
+
+### Returning Users
+The app remembers the user and displays:
+
+```
+Welcome back, John 👋
+```
+
+This makes the experience more personal.
+
+---
+
+# 🔔 Smart Notifications
+
+The system alerts users when:
+- You've entered a budget for today
+- Budget is low
+- Budget is exhausted
+- User logs in
+- Welcome messages appear
+
+---
+
+# 🧾 Transactions History
+
+Users can view transaction history filtered by:
+
+- Today  
+- Last 7 Days  
+- All Time  
+
+---
+
+# 💾 Data Storage
+
+Currently using **Local Storage**.
+
+Stored data includes:
+
+- User name
+- Savings
+- Expenses
+- Budget
+- Transactions
+
+⚠ Clearing browser storage removes saved data.
+
+Future updates may include a backend database.
+
+---
+
+# 📱 Responsive Design
+
+EyeGasto works across:
+
 - Desktop
 - Tablet
-- Mobile devices
+- Mobile
 
-Optimized layout for all screen sizes.
-
-💡 **Mobile Installable Web App**:  
-You can install EyeGasto directly on your phone or tablet from the browser for a more app-like experience. Just tap **“Add to Home Screen”** on your device.  
-
-⚠ Note: EyeGasto does not yet include offline support via a service worker, so full Progressive Web App (PWA) features like offline access are not currently available. These features may be added in a future update.
+Users can also install it using **Add to Home Screen**.
 
 ---
 
-## 📷 Screenshots
+# 📷 Screenshots
 
-### Main Ui Desktop (Without Data & With Data)
-![Dashboard Screenshot](./screenshots/main-ui1.png)
-![Dashboard Screenshot](./screenshots/main-ui2.png)
+## Desktop
+![Dashboard](./screenshots/main-ui1.png)
+![Dashboard](./screenshots/main-ui2.png)
 
-### Phone View UI
-![Phone View UI Screenshot](./screenshots/phone-view1.png)
-![Phone View UI Screenshot](./screenshots/phone-view2.png)
+## Mobile
+![Phone](./screenshots/phone-view1.png)
+![Phone](./screenshots/phone-view2.png)
+![Phone](./screenshots/phone-view3.png)
 
+## Tablet
+![Tablet](./screenshots/tablet.png)
 
-### Main Ui Tablets (Without Data & With Data)
-![Dashboard Screenshot](./screenshots/tablet.png)
+## Start Card
+![Card](./screenshots/start-card.png)
 
-### Tooltip Feature 
-![Tooltip Screenshot](./screenshots/tooltip.png)
+## Notifications
+![Notif](./screenshots/notif1.png)
+![Notif](./screenshots/notif2.png)
+![Notif](./screenshots/notif3.png)
+![Notif](./screenshots/notif4.png)
 
-### Confirmation Message Feature + Delete Expense Feauture (Error Handling)
-![Tooltip Screenshot](./screenshots/confirmation.png)
+## Tooltip
+![Tooltip](./screenshots/tooltip.png)
 
-### Add Expense Feature 
-![Tooltip Screenshot](./screenshots/add-expense.png)
+## Confirmation (Error Handling)
+![Confirmation](./screenshots/confirmation.png)
 
-### Transactions View
-![Tooltip Screenshot](./screenshots/transactions.png)
+## Add Expense and Edit Expense (Error Handling)
+![Add](./screenshots/add-expense.png)
+![Edit](./screenshots/edit-expense.png)
 
-### Date Filters for Expenses and Transactions
-![Tooltip Screenshot](./screenshots/date-filter1.png)
-![Tooltip Screenshot](./screenshots/date-filter2.png)
+## Transactions
+![Transactions](./screenshots/transactions.png)
 
-
-
-
-
-
----
-
-## 🧠 Purpose of This Project
-
-EyeGasto was built to:
-- Practice real-world JavaScript logic
-- Improve UI/UX design skills
-- Implement financial tracking logic
-- Work with data visualization (Chart.js)
-- Deploy a production-ready web app
+## Filters
+![Filters](./screenshots/date-filter1.png)
+![Filters](./screenshots/date-filter2.png)
 
 ---
 
-## 📦 Installation (Local Setup)
+# 🧠 Purpose of This Project
+
+This project was built to practice:
+
+- JavaScript logic
+- Financial tracking systems
+- UI/UX design
+- Chart data visualization
+- Deploying a production-ready web app
+
+---
+
+# 🔮 Future Improvements
+
+- Database integration
+- User accounts
+- Cloud sync
+- Export reports
+- Monthly budgets
+- Dark mode
+- Offline support (PWA)
+
+---
+
+# 📦 Installation
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/your-username/eyegasto.git
+```
+
+Navigate into the folder:
+
+```bash
 cd eyegasto
+```
+
+Run locally:
+
+Open `index.html` in your browser or use **Live Server**.
+
+---
+
+# 🌐 Deployment
+
+The project is deployed using **Vercel**.
+
+Steps:
+
+1. Push project to GitHub
+2. Import repository into Vercel
+3. Deploy
+
+---
+
+# 👨‍💻 Author
+
+Juan Miguel Austria (Tech1uan)
+
+If you like this project, consider giving it a ⭐ on GitHub.
