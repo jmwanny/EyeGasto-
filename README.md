@@ -55,6 +55,11 @@ EyeGasto is a modern and responsive **expense tracker web app** that helps users
 - Works on desktop, tablet, and mobile  
 - Add to Home Screen (PWA-friendly)
 
+### Budget Visualization
+
+- The app dynamically highlights the current budget in **green** when funds are available.
+- When the budget reaches **0 or goes below zero**, the budget amount turns **red**.
+- This provides instant visual feedback to help users track overspending and manage their expenses effectively.
 ---
 
 # 📂 Expense Categories
